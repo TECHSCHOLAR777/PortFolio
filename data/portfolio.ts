@@ -44,7 +44,7 @@ export const portfolioData: PortfolioData = {
     title: "AI-ML Engineer | Building Real-Time Systems that Understand Human Behavior",
     bio: [
       "I am a Software Engineering student at Delhi Technological University (DTU SE '29) and a member of AIMS-DTU, specializing in Artificial Intelligence, Machine Learning, and multi-modal systems.",
-      "My work focuses on architecting high-performance applications—from autonomous voice-driven agents to low-latency hybrid tech stacks—driven by a deep passion for research and system foresight.",
+      "My work focuses on architecting high-performance applications from autonomous voice-driven agents to low-latency hybrid tech stacks, driven by a deep passion for research and system foresight.",
       "As an active open-source contributor (GSSoC '26), I am dedicated to pushing the boundaries of human-computer interaction and collaborating with the broader engineering community."
     ],
     contactEmail: "rishiguruji2901@gmail.com",
