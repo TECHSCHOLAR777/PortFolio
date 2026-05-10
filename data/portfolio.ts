@@ -121,22 +121,22 @@ export const portfolioData: PortfolioData = {
   ],
   thoughts: [
     {
-      problem: "How do you control an entire operating system hands-free without overwhelming the user with a massive dictionary of complex gestures?",
-      mistake: "Assigning a unique, rigid gesture to every single desktop action, which inevitably leads to cognitive overload for the user and frequent false-positive triggers for the system.",
-      insight: "The context of the screen should dictate the action. A 'swipe' gesture should naturally mean something completely different in a browser versus a media player.",
-      fix: "Implement context-aware gesture mapping. By intelligently reading the active screen state, you can map a unified, minimal gesture library to application-specific actions, secured by a stateful two-hand clutch mechanism.",
+      problem: "I was given a task to build a hands free operating system interface, but typical approaches force users to memorize a massive list of complicated gestures. This makes the system mentally exhausting and frustrating to use.",
+      mistake: "At first, I assigned a unique gesture to every single computer action. It seemed organized, but it quickly fell apart. Users could not remember all the movements, and the system kept confusing everyday body language with actual commands.",
+      insight: "The breakthrough came from imagining a simple situation. I am standing in a room with two friends. One friend is next to a speaker. The other friend is next to a window. I make a vertical sliding motion with my hand. The friend by the speaker instantly thinks I want to turn up the music. The friend by the window thinks I want to open the blinds for more light. The exact same hand movement means two completely different things based on who is looking at it. This showed me that a gesture does not need a strict, permanent definition. The meaning can change based on the user's current environment.",
+      fix: "I rebuilt the system to understand context. Instead of a hundred different gestures, my system uses just a few simple ones. The computer looks at what application is currently open on the screen and changes what the gesture does accordingly. To stop the system from accidentally clicking things when the user is just moving their hands naturally, I added a two hand locking mechanism. The user has to intentionally engage the system, making it feel safe and reliable."
     },
     {
-      problem: "Digital infrastructure remains inaccessible to users who rely entirely on voice and regional dialects.",
-      mistake: "Building increasingly complex web interfaces and expecting digital literacy to catch up to the technology.",
-      insight: "Technology must adapt to the user. Mapping unstructured, dialect-heavy audio to stateful data is the key to bridging the digital divide.",
-      fix: "Deploy interactive voice-to-web agents that parse regional audio into structured JSON, driving headless browsers to autonomously navigate legacy portals.",
+      problem: "Essential digital services are completely out of reach for people who rely entirely on voice communication and speak in heavy regional dialects.",
+      mistake: "My initial approach was to keep designing complex visual websites, hoping that people would simply learn how to use them over time. This was a naive assumption. It completely ignored users whose primary way of communicating is speaking.",
+      insight: "I realized technology should adapt to how people naturally behave, not the other way around. When people speak in regional dialects, they often mix words and use sentence structures that do not fit neatly into standard voice commands. This is not a weakness. It is just raw information waiting to be organized. If a system can understand that audio and turn it into structured data, it removes the barrier entirely.",
+      fix: "I built voice to web agents to solve this. These systems listen to spoken regional dialects, convert the messy audio into organized data, and use that data to automatically navigate old or complex websites in the background. Suddenly, speaking in a local dialect was no longer a limitation. It became the exact tool needed to access the internet."
     },
     {
-      problem: "Standard system monitoring tools report current states but fail to provide actionable lead time for critical resource exhaustion.",
-      mistake: "Relying purely on threshold alerts, which only notify engineers when a system is already in the process of failing.",
-      insight: "Historical performance data contains the signatures of future failures. Time-series forecasting can transform reactive monitoring into proactive defense.",
-      fix: "Implement ensemble models (like ARIMA/Holt-Winters) on local data pipelines to predict CPU/RAM spikes hours before they cause system downtime.",
+      problem: "Standard computer monitoring tools are great at reporting what is happening right now, but they give engineers zero warning before a system runs out of memory and crashes.",
+      mistake: "I originally relied on basic alarms. These alarms only triggered when the system was already hitting maximum capacity. Because of this, my team and I were always reacting to problems that were already causing damage.",
+      insight: "I realized that past performance data contains hidden warning signs. If I study how the system behaved right before it crashed in the past, I can spot those exact same patterns forming in the present. The clues to future failures are already recorded in the history logs. I just needed to know how to read them.",
+      fix: "I added statistical forecasting models directly to our local data systems. Now, the software looks at historical trends to predict exactly when the computer will run out of resources. We receive warnings about CPU and memory spikes hours before they actually happen. This completely changed our engineering culture from fighting immediate fires to preventing them from starting."
     }
   ]
 }
