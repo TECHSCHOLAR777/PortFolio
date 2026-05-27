@@ -25,51 +25,60 @@ export default function HowIThinkSection() {
         initial={{ opacity: 0, y: 15 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.1 }}
-        className="text-gray-300 font-body text-[17px] md:text-lg max-w-2xl mb-20 leading-relaxed"
+        className="text-gray-300 font-body text-[17px] md:text-lg max-w-2xl mb-8 leading-relaxed"
       >
         These are real decisions made while building this project.
         Not cleaned up for polish. The format is: problem &rarr; mistake &rarr; insight &rarr; fix.
       </motion.p>
 
-      <div className="space-y-1 max-w-5xl mx-auto">
+      <div className="space-y-6 max-w-5xl mx-auto">
         {portfolioData.thoughts.map((thought, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 + i * 0.15, duration: 0.6 }}
-            className="group border border-[#1e1e1e] transition-all duration-300 md:hover:-translate-y-1 md:hover:bg-[#111] md:hover:shadow-2xl md:hover:shadow-amber-400/5"
+            transition={{ delay: 0.15 + i * 0.08, duration: 0.6 }}
+            className="group border border-[#1e1e1e] rounded-md bg-[rgba(255,255,255,0.01)] transition-all duration-300 md:hover:-translate-y-1 md:hover:bg-[#0c0c0c] md:hover:shadow-lg"
           >
-            {/* Problem header */}
-            <div className="px-6 py-5 border-b border-[#1e1e1e]">
-              <div className="flex items-start gap-4">
-                <span className="text-[10px] font-mono text-amber-400 mt-1 tracking-widest shrink-0">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="font-display text-xl md:text-2xl text-[#e8e4dc] leading-tight">
-                  {thought.problem}
-                </h3>
-              </div>
-            </div>
-
-            {/* Content grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#1e1e1e]">
-              {[
-                { label: 'Mistake', text: thought.mistake, color: 'text-[#ff3b3b]' },
-                { label: 'Insight', text: thought.insight, color: 'text-amber' },
-                { label: 'Fix', text: thought.fix, color: 'text-[#00ff88]' },
-              ].map((item) => (
-                <div key={item.label} className="px-6 py-5">
-                  <span className={`text-[10px] font-mono tracking-[0.3em] uppercase mb-3 block ${item.color}`}>
-                    {item.label}
-                  </span>
-                  <p className="text-[15px] md:text-base text-gray-300 font-body leading-relaxed whitespace-pre-wrap">{item.text}</p>
-                </div>
-              ))}
-            </div>
+            <ThoughtCard thought={thought} index={i} />
           </motion.div>
         ))}
       </div>
     </section>
+  )
+}
+
+function ThoughtCard({ thought, index }: { thought: any; index: number }) {
+  const parts = [
+    { label: 'Mistake', text: thought.mistake, color: 'text-[#ff6b6b]' },
+    { label: 'Insight', text: thought.insight, color: 'text-amber-400' },
+    { label: 'Fix', text: thought.fix, color: 'text-[#4ade80]' },
+  ]
+
+  const excerpt = (s: string) => (s.length > 140 ? s.slice(0, 140).trimEnd() + '…' : s)
+
+  return (
+    <div>
+      <div className="px-6 py-4 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="text-amber-400 font-mono text-sm leading-none">{String(index + 1).padStart(2, '0')}</div>
+          <div>
+            <h3 className="font-display text-lg text-[#e8e4dc]">{thought.problem}</h3>
+            <p className="mt-2 text-sm text-[#bfb8ab] max-w-2xl">{excerpt(thought.mistake + ' ' + thought.insight)}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="px-6 pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {parts.map((p) => (
+            <div key={p.label} className="p-4 border border-[#1e1e1e] rounded-sm bg-[#070707]">
+              <span className={`text-[10px] font-mono tracking-[0.3em] uppercase ${p.color}`}>{p.label}</span>
+              <p className="mt-2 text-sm text-gray-300 font-body leading-relaxed whitespace-pre-wrap">{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
