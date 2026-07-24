@@ -79,7 +79,7 @@ export default function CustomCursor() {
       {/* DOT */}
       <div
         ref={dotRef}
-        className={`fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] bg-amber-400`}
+        className="custom-cursor fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] bg-amber-400"
         style={{
           transform: "translate(-50%, -50%)",
           willChange: "transform",
@@ -89,7 +89,7 @@ export default function CustomCursor() {
       {/* RING */}
       <div
         ref={ringRef}
-        className={`fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9998] border border-amber-400 origin-center opacity-90 transition-opacity`}
+        className="custom-cursor fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9998] border border-amber-400 origin-center opacity-90 transition-opacity"
         style={{
           transform: "translate(-50%, -50%)",
           willChange: "transform",
