@@ -64,7 +64,7 @@ export default function PortfolioPage() {
               <span>RGB → LUMINANCE → PARTICLES</span>
             </div>
             <ParticlePortrait
-              src="/rishi-portrait.jpeg"
+              src="/rishi-portrait-matte.png"
               accentColor="#e06a32"
               particleDensity={0.82}
               backgroundTreatment="halo"
