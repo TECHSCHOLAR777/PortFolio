@@ -66,7 +66,7 @@ export default function PortfolioPage() {
             <ParticlePortrait
               src="/rishi-portrait.jpeg"
               accentColor="#e06a32"
-              particleDensity={1.12}
+              particleDensity={0.82}
               backgroundTreatment="halo"
             />
             <div className="portrait-label portrait-label-bottom">
