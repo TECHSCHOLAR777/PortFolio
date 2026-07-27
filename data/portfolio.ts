@@ -3,6 +3,10 @@ export interface Project {
   description: string
   techStack: string[]
   link?: string
+  links?: {
+    label: string
+    url: string
+  }[]
 }
 
 export interface Achievement {
@@ -52,6 +56,16 @@ export const portfolioData: PortfolioData = {
     linkedin: "https://linkedin.com/in/rishigarg2901",
   },
   projects: [
+    {
+      title: "Andrew Ng Digital Twin",
+      description: "A persistent scientist AI system for citation-backed, multi-turn conversations grounded in 529 public sources and approximately 1.7 million words of Andrew Ng's work.\n\nGrounding and persona: Built role-adaptive retrieval and response orchestration that completed 21/21 evaluation answers while passing deterministic persona and response-structure checks.\n\nPersistent memory: Engineered timeline-aware graph memory with in-session and cross-session recall, plus a live dashboard for inspecting what the system remembers and how those memories connect.\n\nVoice and reliability: Added streaming synthetic cloned voice with a graceful browser fallback. Validation covered 93.3% of 15 memory scenarios, 95.2% of 21 assertions, 30/30 completed production streams, and 7/7 security checks.",
+      techStack: ["Next.js", "React", "TypeScript", "FastAPI", "PostgreSQL", "pgvector", "Gemini", "Chatterbox TTS"],
+      links: [
+        { label: "Live demo", url: "https://digital-twin-kohl-six.vercel.app/" },
+        { label: "GitHub", url: "https://github.com/TECHSCHOLAR777/ANDREW-NG-DIGITAL-TWIN" },
+        { label: "Video", url: "https://drive.google.com/file/d/1uGfpMV7wFNYtOnz5YeO5fRRJtNhca9tU/view?usp=sharing" },
+      ],
+    },
     {
       title: "OCTAVE - Context-Aware Spatial Interface",
       description: "An advanced Python/C++ spatial interface combining offline NLP and computer vision to transform standard webcams into hands-free, intelligent desktop controllers.\n\nArchitecture: Engineered a dual-brain system decoupling Python ML inference from a native C++ execution core via asynchronous TCP sockets, ensuring the heavy AI logic never blocks the operating system's main thread.\n\nKey Innovation (Context Routing): Solved the 'cognitive overload' problem of standard gesture tools. Instead of forcing users to memorize dozens of actions, the system dynamically reads the active OS environment (Browser, IDE, Media Player). It translates just 8 intuitive base gestures into 15+ application-specific actions based entirely on context.\n\nLive Retraining: Developed a user-friendly React/Electron dashboard allowing users to record custom gestures. It utilizes Transfer Learning in the background to seamlessly merge new data without catastrophic forgetting, hot-swapping PyTorch weights with zero system downtime.\n\nPerformance: The default PyTorch LSTMs and FFNNs achieve ~99% static accuracy (2,100 samples) and ~95.8% dynamic accuracy (120 sequences), while the C++ execution engine maintains a blistering <5ms IPC latency and <80ms end-to-end hardware delay.",

@@ -3,11 +3,12 @@ import ParticlePortrait from '@/components/ParticlePortrait'
 import { portfolioData } from '@/data/portfolio'
 
 const projectMeta = [
-  { index: '01', type: 'Computer vision + HCI', signal: '<80 ms', detail: 'End-to-end hardware response' },
-  { index: '02', type: 'Edge AI + robotics', signal: '30 FPS', detail: 'Multimodal inference on edge' },
-  { index: '03', type: 'Voice agents', signal: '22+', detail: 'Regional dialects supported' },
-  { index: '04', type: 'ML systems', signal: '2k+', detail: 'PyPI downloads' },
-  { index: '05', type: 'Public safety AI', signal: '<2 sec', detail: 'Dynamic route recalculation' },
+  { index: '01', type: 'RAG + agent memory', signal: '529', detail: 'Grounding sources' },
+  { index: '02', type: 'Computer vision + HCI', signal: '<80 ms', detail: 'End-to-end hardware response' },
+  { index: '03', type: 'Edge AI + robotics', signal: '30 FPS', detail: 'Multimodal inference on edge' },
+  { index: '04', type: 'Voice agents', signal: '22+', detail: 'Regional dialects supported' },
+  { index: '05', type: 'ML systems', signal: '2k+', detail: 'PyPI downloads' },
+  { index: '06', type: 'Public safety AI', signal: '<2 sec', detail: 'Dynamic route recalculation' },
 ]
 
 export default function PortfolioPage() {
@@ -110,7 +111,16 @@ export default function PortfolioPage() {
                   <div className="project-result">
                     <strong>{meta.signal}</strong>
                     <span>{meta.detail}</span>
-                    <a href={project.link} target="_blank" rel="noreferrer">Open project ↗</a>
+                    <div className="project-links">
+                      {project.links?.map(link => (
+                        <a href={link.url} target="_blank" rel="noreferrer" key={link.url}>
+                          {link.label} ↗
+                        </a>
+                      ))}
+                      {!project.links && project.link && (
+                        <a href={project.link} target="_blank" rel="noreferrer">Open project ↗</a>
+                      )}
+                    </div>
                   </div>
                 </article>
               )
