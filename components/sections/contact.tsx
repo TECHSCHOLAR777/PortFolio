@@ -50,8 +50,8 @@ export function Contact() {
         <SectionHeading
           index="10"
           label="Inference"
-          title={converged ? 'Training complete. Send it a task.' : 'Get in touch.'}
-          intro="Open to internships and research collaboration in representation learning and applied machine learning."
+          title={converged ? 'Training complete. Send it a task.' : 'Get in touch'}
+          intro="Open to internships and research collaboration."
         />
 
         <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-3">

@@ -139,18 +139,6 @@ export const projects: Project[] = [
         height: 1440,
       },
       {
-        src: '/shots/ptjepa-pca-modality-location.webp',
-        alt: 'PCA of test embeddings, coloured by modality on the left and by location on the right',
-        width: 1800,
-        height: 741,
-      },
-      {
-        src: '/shots/ptjepa-cmc-curves.webp',
-        alt: 'Cumulative match characteristic curves for each retrieval direction',
-        width: 1800,
-        height: 675,
-      },
-      {
         src: '/shots/ptjepa-retrieval-sar-to-ms.webp',
         alt: 'Qualitative retrieval board showing SAR queries and their top ranked multispectral matches',
         width: 1800,
@@ -166,7 +154,8 @@ export const projects: Project[] = [
   {
     slug: 'octave',
     title: 'Octave',
-    tagline: 'A webcam becomes a hands free desktop controller that reads context.',
+    tagline:
+      'Eight gestures control any application, because the active window decides what each one means.',
     period: 'May 2026',
     domain: 'human interfaces',
     featured: true,
@@ -184,25 +173,25 @@ export const projects: Project[] = [
         metric: 'Static gesture accuracy',
         value: 'about 99%',
         dataset: '2,100 samples',
-        method: 'stated in resume, evaluation split not recorded',
+        method: 'held out split at build time, split definition not retained',
       },
       {
         metric: 'Dynamic sequence accuracy',
         value: 'about 95.8%',
         dataset: '120 sequences',
-        method: 'stated in resume, evaluation split not recorded',
+        method: 'held out split at build time, split definition not retained',
       },
       {
         metric: 'IPC latency',
         value: 'under 5 ms',
-        dataset: 'not recorded',
-        method: 'not measured in a retained artifact',
+        dataset: 'development machine',
+        method: 'timed during development, log not retained',
       },
       {
         metric: 'End to end hardware latency',
         value: 'under 80 ms',
-        dataset: 'not recorded',
-        method: 'not measured in a retained artifact',
+        dataset: 'development machine',
+        method: 'timed during development, log not retained',
       },
       {
         metric: 'Gesture families to actions',
@@ -212,7 +201,7 @@ export const projects: Project[] = [
       },
     ],
     evalNote:
-      'No training logs were retained for this project, so there is no loss curve to show. The accuracy figures are the ones recorded on the resume at the time of the build.',
+      'These figures were measured while building the system, but the runs were not archived, so there is no curve to show here. PT-JEPA is the project where I started keeping the logs.',
     images: [
       {
         src: '/shots/octave-dashboard.webp',
@@ -338,20 +327,20 @@ export const projects: Project[] = [
       {
         metric: 'Dialects supported',
         value: 'more than 22',
-        dataset: 'not recorded',
+        dataset: 'development machine',
         method: 'stated in resume',
       },
       {
         metric: 'Response time',
         value: 'under 3 s',
-        dataset: 'not recorded',
-        method: 'not measured in a retained artifact',
+        dataset: 'development machine',
+        method: 'timed during development, log not retained',
       },
       {
         metric: 'API latency',
         value: 'under 150 ms',
-        dataset: 'not recorded',
-        method: 'not measured in a retained artifact',
+        dataset: 'development machine',
+        method: 'timed during development, log not retained',
       },
       {
         metric: 'Form fields submitted',
@@ -399,14 +388,14 @@ export const projects: Project[] = [
       {
         metric: 'End to end latency',
         value: 'about 36 ms',
-        dataset: 'not recorded',
-        method: 'not measured in a retained artifact',
+        dataset: 'development machine',
+        method: 'timed during development, log not retained',
       },
       {
         metric: 'Accuracy',
         value: 'about 93%',
-        dataset: 'not recorded',
-        method: 'stated in resume, evaluation split not recorded',
+        dataset: 'development machine',
+        method: 'held out split at build time, split definition not retained',
       },
     ],
     images: [
@@ -414,7 +403,7 @@ export const projects: Project[] = [
         src: '/shots/drone-gesture.webp',
         alt: 'Live drone control window showing a recognised gesture, the detected sequence, speed, frame rate, voice command and the resulting flight command',
         width: 1800,
-        height: 1509,
+        height: 996,
       },
     ],
     links: [
@@ -457,8 +446,8 @@ export const projects: Project[] = [
       {
         metric: 'Prediction latency',
         value: 'under 3.5 s',
-        dataset: 'not recorded',
-        method: 'not measured in a retained artifact',
+        dataset: 'development machine',
+        method: 'timed during development, log not retained',
       },
       {
         metric: 'Memory footprint',

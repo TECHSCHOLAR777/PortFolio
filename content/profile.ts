@@ -238,16 +238,36 @@ export const achievements: Achievement[] = [
  * Being second year is not a weakness worth hiding, but pretending otherwise
  * would be, so this section is deliberately specific.
  */
-export const limitations: string[] = [
-  'I am two years into a four year degree. Everything here was built as a student, not inside a production engineering organisation.',
-  'Nothing I have shipped has carried sustained real user traffic. Load behaviour, on call and incident response are gaps.',
-  'My largest training run was 50 epochs on a single T4. I have not trained across multiple GPUs, and distributed training is next on my list.',
-  'Only PT-JEPA has retained training logs. For earlier projects I recorded headline numbers and not the artifacts behind them, which is a habit I have since changed.',
-  'I have read considerably more about systems at scale than I have operated. I would rather say that plainly than imply otherwise.',
+export const limitations: { claim: string; detail: string }[] = [
+  {
+    claim: 'No production experience',
+    detail:
+      'Everything here was built as a student. None of it went through code review at an engineering organisation.',
+  },
+  {
+    claim: 'No sustained user traffic',
+    detail:
+      'Nothing I have shipped has been under real load. On call, incident response and load behaviour are gaps.',
+  },
+  {
+    claim: 'Single GPU only',
+    detail:
+      'My largest run was 50 epochs on one T4. I have not trained across multiple GPUs. That is next.',
+  },
+  {
+    claim: 'Patchy measurement habits',
+    detail:
+      'Only PT-JEPA has retained training logs. On earlier projects I kept the headline number and not the artifact behind it. I record runs properly now.',
+  },
+  {
+    claim: 'More reading than operating',
+    detail:
+      'I have read a good deal more about systems at scale than I have actually run, and would rather say so than imply otherwise.',
+  },
 ]
 
 export const about: string[] = [
   'I am a software engineering student at Delhi Technological University, two years in, working on representation learning and multimodal systems.',
-  'Most of what I build has the same shape: a model that has to make a decision quickly, and a person waiting on the other side of it. A gesture has to become a command in under a tenth of a second. A spoken sentence in a regional dialect has to become a filled government form. A radar image has to find its optical counterpart in a gallery of hundreds.',
-  'I spend as much time on the part after the model as on the model itself, because that is usually where the latency and the failure modes actually live.',
+  'Most of what I build has the same shape: a model making a decision, and a person waiting on the other side of it. A gesture becomes a command in under a tenth of a second. A sentence in a regional dialect becomes a filled government form.',
+  'The interesting problems are usually not in the model. They are in everything around it, which is where the latency and the failure modes live.',
 ]

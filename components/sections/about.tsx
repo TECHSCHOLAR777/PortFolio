@@ -5,7 +5,7 @@ export function About() {
   return (
     <section id="about" className="section-y">
       <div className="container-page">
-        <SectionHeading index="02" label="Overview" title="What I actually work on." />
+        <SectionHeading index="02" label="Overview" title="What I work on" />
 
         {/* Centred block, left aligned prose. Centring paragraphs this long
             costs more legibility than the symmetry is worth. */}

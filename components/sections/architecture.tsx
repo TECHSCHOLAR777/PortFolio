@@ -16,7 +16,7 @@ export function Architecture() {
         <SectionHeading
           index="03"
           label="Architecture"
-          title="The stack, grouped by where it sits in the pipeline."
+          title="The stack, by where it sits in the pipeline"
           intro="Levels are self assessed. A flat list of thirty logos says nothing about what someone can actually carry, so each item states how far along it is."
         />
 

@@ -5,13 +5,13 @@ import { certifications } from '@/content/profile'
 
 export function Certifications() {
   return (
-    <section id="certifications" className="section-y bg-muted/25 border-border/70 border-y">
+    <section id="certifications" className="section-y-tight">
       <div className="container-page">
         <SectionHeading
           index="07"
           label="Pretraining"
-          title="Coursework, each one verifiable."
-          intro="Every entry links to the issuer so the credential can be checked rather than taken on trust."
+          title="Coursework"
+          intro="Each one links to the issuer, so it can be checked."
         />
 
         <ul className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
@@ -21,7 +21,7 @@ export function Certifications() {
                 href={cert.url}
                 target="_blank"
                 rel="noreferrer"
-                className="border-border bg-card hover:border-primary/40 group flex h-full flex-col items-center justify-center rounded-lg border p-5 text-center transition-colors"
+                className="border-border bg-card hover:border-primary/50 hover:bg-card group flex h-full flex-col items-center justify-center rounded-lg border p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-sm"
               >
                 <h3 className="text-sm font-medium">{cert.title}</h3>
                 <p className="text-muted-foreground mt-1.5 text-xs">{cert.issuer}</p>

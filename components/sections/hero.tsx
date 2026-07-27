@@ -26,12 +26,13 @@ export function Hero() {
           model card
         </p>
 
-        <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">
-          I train representation models and build the systems that have to run them in real time.
+        <h1 className="mx-auto mt-6 max-w-3xl text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          I train models, then build the systems that run them.
         </h1>
 
         <p className="text-muted-foreground container-prose mt-6 leading-relaxed">
-          {site.description}
+          Second year software engineering student at Delhi Technological University. Cross modal
+          retrieval, gesture interfaces, voice agents.
         </p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
