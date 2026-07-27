@@ -55,15 +55,20 @@ export function WorkViews() {
                 {cover ? (
                   <Link
                     href={`/work/${project.slug}`}
-                    className="border-border bg-muted/40 mt-8 block overflow-hidden rounded-lg border"
+                    className="border-border bg-muted/40 hover:border-primary/40 group mt-8 block overflow-hidden rounded-lg border transition-colors"
                   >
+                    {/*
+                     * Fixed ratio across all three. Left at their natural
+                     * heights the covers came out at 535, 658 and 691 pixels,
+                     * which reads as three accidents rather than one set.
+                     */}
                     <Image
                       src={cover.src}
                       alt={cover.alt}
                       width={cover.width}
                       height={cover.height}
                       sizes="(max-width: 768px) 100vw, 1024px"
-                      className="h-auto w-full"
+                      className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </Link>
                 ) : null}

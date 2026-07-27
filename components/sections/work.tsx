@@ -1,9 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
-import Link from 'next/link'
 
 import { SectionHeading } from '@/components/section-heading'
 import { WorkViews } from '@/components/work/work-views'
-import { Button } from '@/components/ui/button'
 import { otherProjects } from '@/content/projects'
 
 export function Work() {
@@ -13,61 +11,56 @@ export function Work() {
         <SectionHeading
           index="04"
           label="Selected work"
-          title="Six systems, and what each one is actually worth."
-          intro="Every figure below carries the dataset it came from and how it was measured. Where something was never measured, it says so."
+          title="Six systems, with the numbers behind them"
+          intro="Each figure carries the data it came from and how it was produced."
         />
 
         <WorkViews />
 
-        <div className="mt-16">
-          <h3 className="text-center text-sm font-medium">Also built</h3>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
+        {/*
+         * A list, not a card grid. Two of these three have no screenshot, so
+         * cards left most of their area empty and read as unfinished. Rows
+         * carry text at its natural width and stop advertising the gap.
+         */}
+        <div className="container-prose mt-20">
+          <h3 className="text-muted-foreground text-center text-xs tracking-wide">Also built</h3>
+
+          <ul className="border-border/70 mt-6 border-t">
             {otherProjects.map((project) => (
-              <article
+              <li
                 key={project.slug}
-                className="border-border bg-card flex flex-col rounded-lg border p-5 text-center"
+                className="border-border/70 hover:bg-muted/40 border-b px-4 py-6 transition-colors"
               >
-                <p className="text-muted-foreground text-xs">{project.period}</p>
-                <h4 className="mt-2 font-medium">{project.title}</h4>
-                <p className="text-muted-foreground mt-2 grow text-sm leading-relaxed">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h4 className="font-medium">{project.title}</h4>
+                  <span className="tabular text-muted-foreground text-xs">{project.period}</span>
+                </div>
+
+                <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                   {project.tagline}
                 </p>
-                <ul className="mt-4 flex flex-wrap justify-center gap-1.5">
-                  {project.stack.slice(0, 4).map((tech) => (
-                    <li
-                      key={tech}
-                      className="border-border text-muted-foreground rounded-full border px-2 py-0.5 text-xs"
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5 flex flex-wrap justify-center gap-2">
+
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <p className="text-muted-foreground text-xs">{project.stack.join(', ')}</p>
+                  <span className="grow" />
                   {project.links.map((link) => (
-                    <Button key={link.url} asChild variant="ghost" size="sm">
-                      <a href={link.url} target="_blank" rel="noreferrer">
-                        {link.label}
-                        <ArrowUpRight className="size-3.5" />
-                      </a>
-                    </Button>
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary inline-flex items-center gap-1 text-xs hover:underline"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="size-3" />
+                    </a>
                   ))}
                 </div>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
-  )
-}
-
-export function FeaturedLink({ slug, children }: { slug: string; children: React.ReactNode }) {
-  return (
-    <Button asChild variant="outline">
-      <Link href={`/work/${slug}`}>
-        {children}
-        <ArrowUpRight className="size-4" />
-      </Link>
-    </Button>
   )
 }
