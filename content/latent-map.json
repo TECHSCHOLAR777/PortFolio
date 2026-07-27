@@ -1,0 +1,71 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "reducer": "PCA",
+  "note": "Six project summaries embedded, then linearly projected to two dimensions.",
+  "explainedVariance": [
+    0.2669,
+    0.24
+  ],
+  "edgeThreshold": 0.3,
+  "nodes": [
+    {
+      "slug": "pt-jepa",
+      "title": "PT-JEPA",
+      "domain": "representation learning",
+      "x": -0.3683,
+      "y": 0.8234
+    },
+    {
+      "slug": "octave",
+      "title": "Octave",
+      "domain": "human interfaces",
+      "x": -0.3264,
+      "y": 0.25
+    },
+    {
+      "slug": "andrew-ng-digital-twin",
+      "title": "Andrew Ng Digital Twin",
+      "domain": "agents",
+      "x": 0.4882,
+      "y": -0.583
+    },
+    {
+      "slug": "bandhu-ai",
+      "title": "Bandhu.AI",
+      "domain": "agents",
+      "x": -0.2789,
+      "y": -1.0
+    },
+    {
+      "slug": "gesture-controlled-drone",
+      "title": "Gesture Controlled Drone",
+      "domain": "edge",
+      "x": -0.5147,
+      "y": 0.0786
+    },
+    {
+      "slug": "foresight-cli",
+      "title": "Foresight CLI",
+      "domain": "systems",
+      "x": 1.0,
+      "y": 0.431
+    }
+  ],
+  "edges": [
+    {
+      "source": "octave",
+      "target": "gesture-controlled-drone",
+      "cosine": 0.505
+    },
+    {
+      "source": "andrew-ng-digital-twin",
+      "target": "bandhu-ai",
+      "cosine": 0.371
+    },
+    {
+      "source": "andrew-ng-digital-twin",
+      "target": "foresight-cli",
+      "cosine": 0.34
+    }
+  ]
+}
