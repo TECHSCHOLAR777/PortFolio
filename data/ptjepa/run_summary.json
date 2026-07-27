@@ -1,0 +1,11 @@
+{
+  "best_val_cross_modal_f1@10": 0.1168634574629125,
+  "latest_val_cross_modal_f1@10": 0.1168634574629125,
+  "latest_val_jepa_loss": 0.8178766029221671,
+  "best_checkpoint": "/kaggle/working/pt_jepa_training/remoteclip_ptjepa_vitb32_v2/checkpoints/best.pt",
+  "latest_checkpoint": "/kaggle/working/pt_jepa_training/remoteclip_ptjepa_vitb32_v2/checkpoints/latest.pt",
+  "train_samples": 543,
+  "val_samples": 1101,
+  "test_samples": 628,
+  "downstream_analysis_split": "test"
+}
