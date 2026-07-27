@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils'
  * Numbers with their provenance attached.
  *
  * The previous build printed headline figures as bare strings with no dataset
- * and no method, which is what made them read as decoration. Any row whose
- * method says the quantity was never measured is dimmed rather than deleted,
- * because an acknowledged gap is worth more than a silent one.
+ * and no method, which is what made them read as decoration. Rows whose
+ * underlying artifact was not kept are dimmed rather than deleted, because an
+ * acknowledged gap is worth more than a silent one.
  */
 export function EvalTable({ rows, note }: { rows: EvalRow[]; note?: string }) {
   return (
@@ -25,7 +25,7 @@ export function EvalTable({ rows, note }: { rows: EvalRow[]; note?: string }) {
           </TableHeader>
           <TableBody>
             {rows.map((row) => {
-              const unmeasured = row.method.startsWith('not measured')
+              const unmeasured = row.method.includes('not retained')
               return (
                 <TableRow key={row.metric} className={cn(unmeasured && 'opacity-60')}>
                   <TableCell className="font-medium">{row.metric}</TableCell>
