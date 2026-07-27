@@ -25,6 +25,10 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+
+# source resumes live outside the repo, only the published copy in public/ ships
+/RISHI GARG RESUME*.pdf
 
 # vercel
 .vercel
