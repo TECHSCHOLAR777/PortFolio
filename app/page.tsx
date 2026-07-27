@@ -33,10 +33,19 @@ export default function HomePage() {
         <About />
         <Architecture />
         <Work />
-        <Experience />
-        <Education />
-        <Certifications />
-        <Achievements />
+
+        {/*
+         * The credentials run shares one band. Previously each of these four
+         * carried its own alternating background, which made the lower half of
+         * the page pulse grey and white with nothing to anchor the eye.
+         */}
+        <div className="bg-muted/25 border-border/70 divide-border/70 divide-y border-y">
+          <Experience />
+          <Education />
+          <Certifications />
+          <Achievements />
+        </div>
+
         <Limitations />
         <Contact />
       </main>

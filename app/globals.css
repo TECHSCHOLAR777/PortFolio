@@ -194,6 +194,17 @@
     @apply py-20 md:py-28 lg:py-36;
   }
 
+  /*
+   * Tighter rhythm for the credentials run. Experience, education, coursework
+   * and achievements are short, factual sections. At full section spacing each
+   * one floated three lines of text in a huge empty band, and alternating the
+   * background across all four turned the page into a metronome. They now share
+   * one band and breathe less.
+   */
+  .section-y-tight {
+    @apply py-14 md:py-16;
+  }
+
   .container-page {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
