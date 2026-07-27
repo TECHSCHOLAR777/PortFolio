@@ -8,11 +8,15 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { epochs } from '@/content/site'
 import { cn } from '@/lib/utils'
 
-/** Sparkline of the loss so far. Drawn from the same function the bar reports. */
+/**
+ * Sparkline of the loss so far, drawn from the same function the bar reports.
+ * Sized generously: at 64px the curve was an unreadable squiggle, which is
+ * worse than showing nothing.
+ */
 function LossSparkline({ progress }: { progress: number }) {
-  const width = 64
-  const height = 18
-  const samples = 40
+  const width = 120
+  const height = 22
+  const samples = 56
 
   const points: string[] = []
   for (let i = 0; i < samples; i++) {
@@ -25,8 +29,10 @@ function LossSparkline({ progress }: { progress: number }) {
   }
 
   if (points.length < 2) {
-    return <svg width={width} height={height} aria-hidden className="hidden sm:block" />
+    return <svg width={width} height={height} aria-hidden className="hidden md:block" />
   }
+
+  const last = points[points.length - 1].split(',')
 
   return (
     <svg
@@ -34,17 +40,19 @@ function LossSparkline({ progress }: { progress: number }) {
       height={height}
       viewBox={`0 0 ${width} ${height}`}
       aria-hidden
-      className="hidden shrink-0 sm:block"
+      className="hidden shrink-0 md:block"
     >
       <polyline
         points={points.join(' ')}
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.25"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
         className="text-primary"
       />
+      {/* leading dot marks the current position on the curve */}
+      <circle cx={last[0]} cy={last[1]} r="2" className="fill-primary" />
     </svg>
   )
 }

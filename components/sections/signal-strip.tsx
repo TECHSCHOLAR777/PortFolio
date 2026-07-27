@@ -9,9 +9,13 @@ const facts = [
 export function SignalStrip() {
   return (
     <section id="signal" aria-label="Key figures" className="border-border/70 border-y">
-      <div className="container-page grid grid-cols-2 gap-px py-0 md:grid-cols-5">
+      {/*
+       * Vertical rules between tiles. Without them these read as five numbers
+       * floating in a row rather than as one instrument panel.
+       */}
+      <div className="container-page divide-border/70 grid grid-cols-2 divide-x md:grid-cols-5">
         {facts.map((fact) => (
-          <div key={fact.label} className="px-2 py-8 text-center md:py-10">
+          <div key={fact.label} className="px-3 py-8 text-center md:py-10">
             <p className="tabular text-2xl font-medium tracking-tight sm:text-3xl">{fact.value}</p>
             <p className="mt-2 text-sm">{fact.label}</p>
             <p className="text-muted-foreground mt-1 text-xs">{fact.note}</p>
