@@ -10,7 +10,7 @@ export function Achievements() {
        bottom of the document. */
     <section id="achievements" className="section-y-tight">
       <div className="container-page">
-        <SectionHeading index="08" label="Eval results" title="Achievements" />
+        <SectionHeading index="07" label="Recognition" title="Achievements" />
 
         {/*
          * Rows on a year rail, matching the education block above it. Six

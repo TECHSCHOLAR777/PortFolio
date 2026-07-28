@@ -8,8 +8,8 @@ export function Certifications() {
     <section id="certifications" className="section-y-tight">
       <div className="container-page">
         <SectionHeading
-          index="07"
-          label="Pretraining"
+          index="06"
+          label="Credentials"
           title="Coursework"
           intro="Each one links to the issuer, so it can be checked."
         />

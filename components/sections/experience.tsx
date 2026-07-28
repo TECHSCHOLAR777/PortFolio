@@ -5,7 +5,7 @@ export function Experience() {
   return (
     <section id="experience" className="section-y-tight">
       <div className="container-page">
-        <SectionHeading index="05" label="Fine tuning" title="Research work" />
+        <SectionHeading index="04" label="Experience" title="Research work" />
 
         {/* Same row rhythm as education and achievements below, so the whole
             credentials band reads as one table rather than three layouts. */}

@@ -27,19 +27,24 @@ export const site = {
 } as const
 
 /**
- * The page is laid out as a model card. Each section is an epoch, and the
- * epoch bar reads its progress from this list, so section order and epoch
- * count never drift apart.
+ * Section order, which the epoch bar reads so the two can never drift apart.
+ *
+ * These labels used to borrow model card vocabulary: fine tuning for research,
+ * training data for education, inference for the contact form. That only made
+ * sense while the hero announced the conceit, and announcing it framed the page
+ * as a gimmick before a reader had any reason to care. The structure the model
+ * card actually contributed, a page that states its own limitations, is still
+ * here. The costume is not.
  */
 export const epochs = [
-  { id: 'signal', label: 'Signal' },
-  { id: 'about', label: 'Overview' },
-  { id: 'architecture', label: 'Architecture' },
+  { id: 'signal', label: 'Overview' },
+  { id: 'about', label: 'What I work on' },
+  { id: 'architecture', label: 'Stack' },
   { id: 'work', label: 'Selected work' },
-  { id: 'experience', label: 'Fine tuning' },
-  { id: 'education', label: 'Training data' },
-  { id: 'certifications', label: 'Pretraining' },
-  { id: 'achievements', label: 'Eval results' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'certifications', label: 'Coursework' },
+  { id: 'achievements', label: 'Achievements' },
 ] as const
 
 export type EpochId = (typeof epochs)[number]['id']

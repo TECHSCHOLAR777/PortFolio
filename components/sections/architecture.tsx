@@ -14,7 +14,7 @@ export function Architecture() {
     <section id="architecture" className="section-y bg-recessed border-line border-y">
       <div className="container-page">
         <SectionHeading
-          index="03"
+          index="02"
           label="Architecture"
           title="The stack, by where it sits in the pipeline"
           intro="Levels are self assessed. A flat list of thirty logos says nothing about what someone can actually carry, so each item states how far along it is."

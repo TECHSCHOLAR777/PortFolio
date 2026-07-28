@@ -14,7 +14,7 @@ export function Limitations() {
     <section id="limitations" className="section-y">
       <div className="container-page">
         <SectionHeading
-          index="09"
+          index="08"
           label="Limitations"
           title="Where my experience runs out"
           intro="Two years into a four year degree. These are the edges of what I have done."

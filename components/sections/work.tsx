@@ -9,7 +9,7 @@ export function Work() {
     <section id="work" className="section-y">
       <div className="container-page">
         <SectionHeading
-          index="04"
+          index="03"
           label="Selected work"
           title="Six systems, with the numbers behind them"
           intro="Each figure carries the data it came from and how it was produced."

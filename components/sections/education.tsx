@@ -5,7 +5,7 @@ export function Education() {
   return (
     <section id="education" className="section-y-tight">
       <div className="container-page">
-        <SectionHeading index="06" label="Training data" title="Education" />
+        <SectionHeading index="05" label="Background" title="Education" />
 
         {/*
          * Rows, not stacked blocks. School results matter less every year, so
