@@ -2,101 +2,120 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Tokens only. Every visual component comes from components/ui.
- * The old build hand wrote 187 lines of component CSS here while an entire
- * unused Tailwind theme sat in tailwind.config.js. One system now.
- *
- * Palette: a cool steel neutral ramp tied to the liquid metal hero, plus a
- * single signal accent reserved for state (epoch progress, active nav, focus,
- * chart series). Accent stays under roughly 5% of pixels.
- */
+/* ──────────────────────────────────────────────────────────────────────────
+   ONE SEMANTIC TOKEN SYSTEM
+
+   The first build of this site had two vocabularies fighting: a full custom
+   Tailwind theme that nothing imported, and 187 lines of hand written CSS on a
+   different palette. The rebuild removed both but replaced them with shadcn
+   defaults plus improvised opacities (bg-muted/25, bg-card/40, border-border/70)
+   scattered through the components, which is the same problem wearing a
+   tidier shirt: no shared name for "the surface one step up from the page".
+
+   So: named base tokens for surface, line and text, with the shadcn tokens as
+   aliases pointing at them through var(). Overriding a base token in the dark
+   block re-resolves every alias that references it, so light and dark are each
+   designed rather than one being an inversion of the other.
+
+   Palette: warm graphite surfaces with a cool signal accent. Warm neutrals
+   because pure cool grey is what a page defaults to when nobody chose; a cool
+   accent because the site is full of readouts and a warm surface with a cold
+   readout is how instruments have always looked. The accent means state,
+   epoch progress, active nav, focus, chart series, and nothing else.
+   ────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  --radius: 0.5rem;
+  /* ── Surfaces: warm paper ── */
+  --bg: #f4f2ed;
+  --bg-recessed: #eceae3;
+  --surface: #fbfaf7;
+  --surface-alt: #efece5;
+  --surface-hover: #e7e4db;
 
-  /* steel ramp, light to dark, used by the metal hero and surfaces */
-  --steel-50: oklch(0.97 0.003 250);
-  --steel-100: oklch(0.93 0.004 250);
-  --steel-200: oklch(0.86 0.005 250);
-  --steel-300: oklch(0.74 0.006 250);
-  --steel-400: oklch(0.6 0.007 250);
-  --steel-500: oklch(0.48 0.008 250);
-  --steel-600: oklch(0.38 0.008 250);
-  --steel-700: oklch(0.29 0.008 250);
-  --steel-800: oklch(0.21 0.008 250);
-  --steel-900: oklch(0.16 0.008 250);
-  --steel-950: oklch(0.12 0.008 250);
+  /* ── Lines ── */
+  --line: rgba(28, 26, 23, 0.12);
+  --line-strong: rgba(28, 26, 23, 0.2);
 
-  --background: oklch(0.985 0.002 250);
-  --foreground: oklch(0.21 0.01 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.01 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.01 250);
+  /* ── Text, contrast measured against --surface ── */
+  --ink: #1c1a17;
+  --ink-muted: #5f5b54;
+  --ink-subtle: #8a857c;
 
-  --primary: oklch(0.52 0.11 210);
-  --primary-foreground: oklch(0.99 0.002 250);
-  --secondary: oklch(0.95 0.004 250);
-  --secondary-foreground: oklch(0.26 0.01 250);
+  /* ── Cool signal accent ── */
+  --signal: #0e7490;
+  --signal-hover: #0c5f76;
+  --signal-soft: rgba(14, 116, 144, 0.1);
+  --signal-ink: #ffffff;
 
-  --muted: oklch(0.955 0.004 250);
-  --muted-foreground: oklch(0.5 0.008 250);
-  --accent: oklch(0.95 0.004 250);
-  --accent-foreground: oklch(0.26 0.01 250);
+  /* ── Type scale. Body sits at a reading size, not a dashboard 13px. ── */
+  --text-2xs: 11px;
+  --text-xs: 12.5px;
+  --text-sm: 13.5px;
+  --text-base: 15px;
+  --text-lg: 17px;
 
-  --destructive: oklch(0.58 0.19 27);
-  --destructive-foreground: oklch(0.99 0.002 250);
+  --radius: 0.625rem;
 
-  --border: oklch(0.9 0.005 250);
-  --input: oklch(0.9 0.005 250);
-  --ring: oklch(0.52 0.11 210);
+  /* The metal reads molten in the hero and cools as the page trains. */
+  --metal-tint: #93a6ba;
 
-  /* chart series, ordered by use. Only one chart ships on this site. */
-  --chart-1: oklch(0.52 0.11 210);
-  --chart-2: oklch(0.58 0.09 250);
-  --chart-3: oklch(0.62 0.07 170);
-  --chart-4: oklch(0.55 0.06 300);
-  --chart-5: oklch(0.6 0.05 60);
+  /* ── shadcn aliases. Defined once, here only. ── */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--signal);
+  --primary-foreground: var(--signal-ink);
+  --secondary: var(--surface-alt);
+  --secondary-foreground: var(--ink);
+  --muted: var(--surface-alt);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--surface-hover);
+  --accent-foreground: var(--ink);
+  --destructive: #b42318;
+  --destructive-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--signal);
 
-  /* the metal reads as molten in the hero and cools as the page trains */
-  --metal-base: oklch(0.82 0.006 250);
-  --metal-highlight: oklch(0.97 0.004 250);
+  --chart-1: var(--signal);
+  --chart-2: #7c6f9e;
+  --chart-3: #2f7d6a;
+  --chart-4: #a4682f;
+  --chart-5: var(--ink-subtle);
 }
 
+/* ── DARK: warm graphite, not blue black ── */
 .dark {
-  --background: oklch(0.145 0.008 250);
-  --foreground: oklch(0.94 0.004 250);
-  --card: oklch(0.19 0.008 250);
-  --card-foreground: oklch(0.94 0.004 250);
-  --popover: oklch(0.19 0.008 250);
-  --popover-foreground: oklch(0.94 0.004 250);
+  --bg: #0c0b0a;
+  --bg-recessed: #100f0e;
+  --surface: #151413;
+  --surface-alt: #1c1a19;
+  --surface-hover: #24221f;
 
-  --primary: oklch(0.78 0.12 200);
-  --primary-foreground: oklch(0.16 0.01 250);
-  --secondary: oklch(0.24 0.008 250);
-  --secondary-foreground: oklch(0.94 0.004 250);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
 
-  --muted: oklch(0.24 0.008 250);
-  --muted-foreground: oklch(0.66 0.008 250);
-  --accent: oklch(0.26 0.008 250);
-  --accent-foreground: oklch(0.94 0.004 250);
+  --ink: #f2f0eb;
+  --ink-muted: #a8a49d;
+  --ink-subtle: #75716a;
 
-  --destructive: oklch(0.65 0.18 25);
-  --destructive-foreground: oklch(0.16 0.01 250);
+  --signal: #3fc7de;
+  --signal-hover: #6bd8ea;
+  --signal-soft: rgba(63, 199, 222, 0.14);
+  --signal-ink: #04202a;
 
-  --border: oklch(0.28 0.008 250);
-  --input: oklch(0.3 0.008 250);
-  --ring: oklch(0.78 0.12 200);
+  --destructive: #ff9a8f;
+  --destructive-foreground: #2a1614;
 
-  --chart-1: oklch(0.78 0.12 200);
-  --chart-2: oklch(0.7 0.11 250);
-  --chart-3: oklch(0.75 0.09 165);
-  --chart-4: oklch(0.68 0.09 305);
-  --chart-5: oklch(0.76 0.08 70);
+  --chart-2: #b89af4;
+  --chart-3: #55d6a0;
+  --chart-4: #f0a15c;
+  --chart-5: var(--ink-subtle);
 
-  --metal-base: oklch(0.42 0.008 250);
-  --metal-highlight: oklch(0.88 0.006 250);
+  --metal-tint: #6d7d8f;
 }
 
 @theme inline {
@@ -120,17 +139,19 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-steel-50: var(--steel-50);
-  --color-steel-100: var(--steel-100);
-  --color-steel-200: var(--steel-200);
-  --color-steel-300: var(--steel-300);
-  --color-steel-400: var(--steel-400);
-  --color-steel-500: var(--steel-500);
-  --color-steel-600: var(--steel-600);
-  --color-steel-700: var(--steel-700);
-  --color-steel-800: var(--steel-800);
-  --color-steel-900: var(--steel-900);
-  --color-steel-950: var(--steel-950);
+  /* Surface vocabulary exposed as utilities, so components stop inventing
+     one off opacities to mean "one step up from the page". */
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-hover: var(--surface-hover);
+  --color-recessed: var(--bg-recessed);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -138,13 +159,20 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
 
+  /*
+   * Two faces with one job each. Space Grotesk is drawn from a monospace
+   * skeleton, so headings rhyme with the numerals without setting the page in
+   * mono, which was the loudest tell in the old build. Geist Sans stays on
+   * body copy, where it is quieter and better at small sizes.
+   */
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  --radius-sm: calc(var(--radius) - 2px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
-  --radius-xl: calc(var(--radius) + 6px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
 }
 
 @layer base {
@@ -160,21 +188,51 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-size: var(--text-base);
+    line-height: 1.6;
     text-rendering: optimizeLegibility;
   }
 
+  /* Headings only. Space Grotesk is wide and a little mechanical, which reads
+     well large and poorly at caption size, so it never touches body copy. */
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
+    font-family: var(--font-heading);
     text-wrap: balance;
+    letter-spacing: -0.015em;
   }
 
   p {
     text-wrap: pretty;
   }
 
+  /* Keyboard users must see where they are, in both themes. */
   :focus-visible {
-    @apply outline-ring outline-2 outline-offset-2;
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--signal-soft);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-recessed);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border: 2px solid var(--bg-recessed);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--ink-subtle);
   }
 }
 
@@ -211,6 +269,10 @@
 
   .container-prose {
     @apply mx-auto w-full max-w-2xl;
+  }
+
+  .text-2xs {
+    font-size: var(--text-2xs);
   }
 }
 
