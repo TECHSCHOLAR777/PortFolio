@@ -55,7 +55,7 @@ export function WorkViews() {
                 {cover ? (
                   <Link
                     href={`/work/${project.slug}`}
-                    className="border-border bg-muted/40 hover:border-primary/40 group mt-8 block overflow-hidden rounded-lg border transition-colors"
+                    className="border-border bg-surface-alt hover:border-signal/50 group mt-8 block overflow-hidden rounded-lg border transition-colors"
                   >
                     {/*
                      * Fixed ratio across all three. Left at their natural

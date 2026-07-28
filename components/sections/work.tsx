@@ -25,18 +25,18 @@ export function Work() {
         <div className="container-prose mt-20">
           <h3 className="text-muted-foreground text-center text-xs tracking-wide">Also built</h3>
 
-          <ul className="border-border/70 mt-6 border-t">
+          <ul className="border-line mt-6 border-t">
             {otherProjects.map((project) => (
               <li
                 key={project.slug}
-                className="border-border/70 hover:bg-muted/40 border-b px-4 py-6 transition-colors"
+                className="border-line hover:bg-surface-alt border-b px-4 py-6 transition-colors"
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h4 className="font-medium">{project.title}</h4>
                   <span className="tabular text-muted-foreground text-xs">{project.period}</span>
                 </div>
 
-                <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                <p className="text-muted-foreground mt-2 leading-relaxed">
                   {project.tagline}
                 </p>
 
@@ -49,7 +49,7 @@ export function Work() {
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-primary inline-flex items-center gap-1 text-xs hover:underline"
+                      className="text-signal inline-flex items-center gap-1 text-xs hover:underline"
                     >
                       {link.label}
                       <ArrowUpRight className="size-3" />

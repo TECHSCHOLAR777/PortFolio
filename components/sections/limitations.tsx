@@ -24,15 +24,15 @@ export function Limitations() {
           {limitations.map((item, i) => (
             <li
               key={item.claim}
-              className="border-border/70 bg-card/40 hover:border-border rounded-lg border p-5 transition-colors"
+              className="border-line bg-surface hover:border-border rounded-lg border p-5 transition-colors"
             >
               <p className="flex items-baseline gap-2.5 font-medium">
-                <span className="tabular text-muted-foreground/60 text-xs">
+                <span className="tabular text-ink-subtle text-xs">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 {item.claim}
               </p>
-              <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{item.detail}</p>
+              <p className="text-muted-foreground mt-2 leading-relaxed">{item.detail}</p>
             </li>
           ))}
         </ul>

@@ -19,7 +19,7 @@ export function Hero() {
 
       <div className="container-page relative py-20 text-center">
         <p className="text-muted-foreground text-xs tracking-wide">
-          <span className="tabular text-primary">rishi-garg-v2</span>
+          <span className="tabular text-signal">rishi-garg-v2</span>
           <span className="mx-2" aria-hidden>
             ·
           </span>

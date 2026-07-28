@@ -26,7 +26,7 @@ export function SectionHeading({
   return (
     <div className={cn('mx-auto max-w-2xl text-center', className)}>
       <p className="flex items-center justify-center gap-2.5 text-xs">
-        <span className="tabular border-primary/25 bg-primary/10 text-primary rounded-full border px-2 py-0.5">
+        <span className="tabular border-signal/30 bg-signal-soft text-signal rounded-full border px-2 py-0.5">
           {index}
         </span>
         <span className="text-muted-foreground tracking-wide">{label}</span>

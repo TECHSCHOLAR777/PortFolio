@@ -20,7 +20,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="bg-background/80 border-border/80 sticky top-0 z-50 border-b backdrop-blur-md">
+    <header className="bg-background/80 border-line sticky top-0 z-50 border-b backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link href="/" className="group flex items-baseline gap-2.5">
           <span className="font-medium tracking-tight">{site.name}</span>

@@ -19,7 +19,7 @@ export default function HomePage() {
     <TrainingProvider>
       <a
         href="#content"
-        className="bg-primary text-primary-foreground sr-only rounded-md px-4 py-2 focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100]"
+        className="bg-signal text-primary-foreground sr-only rounded-md px-4 py-2 focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100]"
       >
         Skip to content
       </a>
@@ -39,7 +39,7 @@ export default function HomePage() {
          * carried its own alternating background, which made the lower half of
          * the page pulse grey and white with nothing to anchor the eye.
          */}
-        <div className="bg-muted/25 border-border/70 divide-border/70 divide-y border-y">
+        <div className="bg-recessed border-line divide-line divide-y border-y">
           <Experience />
           <Education />
           <Certifications />

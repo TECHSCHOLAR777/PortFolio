@@ -95,16 +95,16 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
             </section>
           ) : null}
 
-          <section className="bg-muted/25 border-border/70 section-y border-y">
+          <section className="bg-recessed border-line section-y border-y">
             <div className="container-page">
               <h2 className="text-center text-2xl font-medium tracking-tight">What I built</h2>
               <ul className="container-prose mt-10 space-y-4">
                 {project.contribution.map((item) => (
-                  <li key={item} className="border-border/70 flex gap-3 border-t pt-4">
-                    <span aria-hidden className="text-muted-foreground/50 mt-1.5 select-none">
+                  <li key={item} className="border-line flex gap-3 border-t pt-4">
+                    <span aria-hidden className="text-ink-subtle mt-1.5 select-none">
                       &bull;
                     </span>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item}</p>
+                    <p className="text-muted-foreground leading-relaxed">{item}</p>
                   </li>
                 ))}
               </ul>
@@ -128,7 +128,7 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
             </section>
           ) : null}
 
-          <section className="bg-muted/25 border-border/70 section-y border-y">
+          <section className="bg-recessed border-line section-y border-y">
             <div className="container-page">
               <h2 className="text-center text-2xl font-medium tracking-tight">Results</h2>
               <p className="text-muted-foreground container-prose mt-4 text-center leading-relaxed">

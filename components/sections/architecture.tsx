@@ -4,14 +4,14 @@ import { levelCopy, skillGroups, type Level } from '@/content/profile'
 import { cn } from '@/lib/utils'
 
 const levelStyle: Record<Level, string> = {
-  working: 'bg-primary/12 text-primary border-primary/25',
+  working: 'bg-signal-soft text-signal border-signal/30',
   comfortable: 'bg-muted text-foreground/80 border-border',
   learning: 'bg-transparent text-muted-foreground border-border border-dashed',
 }
 
 export function Architecture() {
   return (
-    <section id="architecture" className="section-y bg-muted/25 border-border/70 border-y">
+    <section id="architecture" className="section-y bg-recessed border-line border-y">
       <div className="container-page">
         <SectionHeading
           index="03"

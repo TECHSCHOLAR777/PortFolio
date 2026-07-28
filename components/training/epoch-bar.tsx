@@ -49,7 +49,7 @@ function LossSparkline({ progress }: { progress: number }) {
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-primary"
+        className="text-signal"
       />
       {/* leading dot marks the current position on the curve */}
       <circle cx={last[0]} cy={last[1]} r="2" className="fill-primary" />
@@ -67,7 +67,7 @@ function EpochTrack({ progress, epochCount }: { progress: number; epochCount: nu
         return (
           <div key={i} className="bg-border/70 h-1 flex-1 overflow-hidden rounded-full">
             <div
-              className="bg-primary h-full origin-left rounded-full transition-transform duration-150 ease-out"
+              className="bg-signal h-full origin-left rounded-full transition-transform duration-150 ease-out"
               style={{ transform: `scaleX(${fill})` }}
             />
           </div>
@@ -100,7 +100,7 @@ function BoundaryToast() {
           className="bg-popover text-popover-foreground border-border pointer-events-none absolute top-full left-1/2 mt-2 -translate-x-1/2 rounded-md border px-3 py-1.5 text-xs shadow-sm"
           role="status"
         >
-          <span className="tabular text-primary">
+          <span className="tabular text-signal">
             epoch {String(justCompleted).padStart(2, '0')}/{String(epochCount).padStart(2, '0')}
           </span>
           <span className="mx-1.5 opacity-50" aria-hidden>
@@ -133,7 +133,7 @@ export function EpochBar() {
         active ? 'opacity-100' : 'pointer-events-none -translate-y-2 opacity-0'
       )}
     >
-      <div className="bg-background/85 border-border/80 relative border-b backdrop-blur-md">
+      <div className="bg-background/80 border-line relative border-b backdrop-blur-md">
         <Tooltip>
           <TooltipTrigger asChild>
             <div

@@ -10,6 +10,10 @@ import { cn } from '@/lib/utils'
  * pixels: the source renders downscaled, which hides softness rather than
  * magnifying it. The frame also reads as "this is a running application"
  * without a caption having to say so.
+ *
+ * The chassis keeps its own fixed greys rather than following the theme. A
+ * laptop is a physical object in the photograph, and objects do not repaint
+ * themselves when the page switches to light mode.
  */
 export function LaptopFrame({
   src,
@@ -26,13 +30,13 @@ export function LaptopFrame({
 }) {
   return (
     <figure className={cn('mx-auto w-full max-w-[680px]', className)}>
-      <div className="border-steel-400/40 bg-steel-800 rounded-t-xl border border-b-0 p-2.5 shadow-lg sm:p-3">
-        <div className="bg-steel-950 flex items-center gap-1.5 rounded-t-md px-3 py-2">
-          <span className="bg-steel-600 size-2 rounded-full" />
-          <span className="bg-steel-600 size-2 rounded-full" />
-          <span className="bg-steel-600 size-2 rounded-full" />
+      <div className="rounded-t-xl border border-b-0 border-[#3a3a3d] bg-[#232326] p-2.5 shadow-lg sm:p-3">
+        <div className="flex items-center gap-1.5 rounded-t-md bg-[#141416] px-3 py-2">
+          <span className="size-2 rounded-full bg-[#4a4a4f]" />
+          <span className="size-2 rounded-full bg-[#4a4a4f]" />
+          <span className="size-2 rounded-full bg-[#4a4a4f]" />
         </div>
-        <div className="bg-steel-950 overflow-hidden rounded-b-md">
+        <div className="overflow-hidden rounded-b-md bg-[#141416]">
           <Image
             src={src}
             alt={alt}
@@ -44,8 +48,8 @@ export function LaptopFrame({
         </div>
       </div>
       {/* base and hinge */}
-      <div className="bg-steel-700 border-steel-400/40 mx-auto h-3 rounded-b-xl border border-t-0" />
-      <div className="bg-steel-600/60 mx-auto h-1 w-1/4 rounded-b-lg" />
+      <div className="mx-auto h-3 rounded-b-xl border border-t-0 border-[#3a3a3d] bg-[#2c2c30]" />
+      <div className="mx-auto h-1 w-1/4 rounded-b-lg bg-[#3a3a3d]" />
     </figure>
   )
 }

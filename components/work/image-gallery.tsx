@@ -25,7 +25,7 @@ function DiagramViewer({ image }: { image: ProjectImage }) {
   const [zoom, setZoom] = useState(1)
 
   return (
-    <figure className="border-border bg-muted/30 overflow-hidden rounded-lg border">
+    <figure className="border-border bg-recessed overflow-hidden rounded-lg border">
       <Dialog onOpenChange={(open) => !open && setZoom(1)}>
         <DialogTrigger asChild>
           <button
@@ -52,7 +52,7 @@ function DiagramViewer({ image }: { image: ProjectImage }) {
         <DialogContent className="max-h-[92vh] w-[96vw] max-w-[96vw] overflow-hidden p-0 sm:max-w-[96vw]">
           <DialogTitle className="sr-only">{image.alt}</DialogTitle>
 
-          <div className="bg-background/90 absolute top-3 left-3 z-10 flex gap-1 rounded-md p-1 backdrop-blur-sm">
+          <div className="bg-background/80 absolute top-3 left-3 z-10 flex gap-1 rounded-md p-1 backdrop-blur-sm">
             <Button
               variant="ghost"
               size="icon"
@@ -103,7 +103,7 @@ function Lightbox({ image }: { image: ProjectImage }) {
       <DialogTrigger asChild>
         <button
           type="button"
-          className="border-border bg-muted/30 block w-full cursor-zoom-in overflow-hidden rounded-lg border"
+          className="border-border bg-recessed block w-full cursor-zoom-in overflow-hidden rounded-lg border"
         >
           <Image
             src={image.src}

@@ -40,7 +40,7 @@ export function EvalTable({ rows, note }: { rows: EvalRow[]; note?: string }) {
       </div>
 
       {note ? (
-        <p className="text-muted-foreground border-border/70 mx-auto mt-4 max-w-2xl border-l-2 pl-4 text-left text-xs leading-relaxed">
+        <p className="text-muted-foreground border-line mx-auto mt-4 max-w-2xl border-l-2 pl-4 text-left text-xs leading-relaxed">
           {note}
         </p>
       ) : null}

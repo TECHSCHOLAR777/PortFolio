@@ -12,11 +12,11 @@ export function Education() {
          * they get one line each instead of the three line treatment that only
          * the degree deserves.
          */}
-        <dl className="container-prose border-border/70 mt-10 border-t">
+        <dl className="container-prose border-line mt-10 border-t">
           {education.map((item) => (
             <div
               key={item.qualification}
-              className="border-border/70 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b py-4"
+              className="border-line flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b py-4"
             >
               <dt className="min-w-0">
                 <span className="font-medium">{item.qualification}</span>

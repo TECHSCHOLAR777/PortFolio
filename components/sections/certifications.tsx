@@ -21,11 +21,11 @@ export function Certifications() {
                 href={cert.url}
                 target="_blank"
                 rel="noreferrer"
-                className="border-border bg-card hover:border-primary/50 hover:bg-card group flex h-full flex-col items-center justify-center rounded-lg border p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-sm"
+                className="border-border bg-card hover:border-signal/50 hover:bg-card group flex h-full flex-col items-center justify-center rounded-lg border p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-sm"
               >
                 <h3 className="text-sm font-medium">{cert.title}</h3>
                 <p className="text-muted-foreground mt-1.5 text-xs">{cert.issuer}</p>
-                <span className="text-primary mt-3 inline-flex items-center gap-1 text-xs">
+                <span className="text-signal mt-3 inline-flex items-center gap-1 text-xs">
                   Verify
                   <ArrowUpRight className="size-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>

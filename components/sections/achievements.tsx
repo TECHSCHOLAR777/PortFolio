@@ -17,16 +17,16 @@ export function Achievements() {
          * centred blocks each stacking four lines made this the tallest
          * section in the credentials band for the least content in it.
          */}
-        <ol className="container-prose border-border/70 mt-10 border-t">
+        <ol className="container-prose border-line mt-10 border-t">
           {achievements.map((item) => (
             <li
               key={item.title}
-              className="border-border/70 grid grid-cols-[3.5rem_1fr] gap-x-4 border-b py-4 text-left"
+              className="border-line grid grid-cols-[3.5rem_1fr] gap-x-4 border-b py-4 text-left"
             >
               <span className="tabular text-muted-foreground pt-0.5 text-xs">{item.year}</span>
               <div>
                 <h3 className="font-medium">{item.title}</h3>
-                <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
+                <p className="text-muted-foreground mt-1 leading-relaxed">
                   {item.detail}
                   {item.url ? (
                     <>
@@ -35,7 +35,7 @@ export function Achievements() {
                         href={item.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-primary inline-flex items-center gap-0.5 whitespace-nowrap hover:underline"
+                        className="text-signal inline-flex items-center gap-0.5 whitespace-nowrap hover:underline"
                       >
                         Proof
                         <ArrowUpRight className="size-3" />

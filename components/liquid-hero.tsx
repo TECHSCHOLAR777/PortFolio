@@ -17,6 +17,7 @@ import { useTraining } from '@/components/training/progress-provider'
 export function LiquidHero() {
   const { progress } = useTraining()
   const [enabled, setEnabled] = useState(false)
+  const [tint, setTint] = useState('#93a6ba')
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -33,6 +34,19 @@ export function LiquidHero() {
     }
   }, [])
 
+  useEffect(() => {
+    // The shader parses a colour string, so the token has to be resolved rather
+    // than handed over as var(). Watching the class attribute keeps the metal
+    // in step with the theme toggle instead of freezing at its first value.
+    const read = () =>
+      setTint(getComputedStyle(document.documentElement).getPropertyValue('--metal-tint').trim())
+
+    read()
+    const observer = new MutationObserver(read)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
+
   // Molten at the top of the page, settled once training converges.
   const settle = Math.min(1, progress * 1.15)
 
@@ -46,7 +60,7 @@ export function LiquidHero() {
     className: 'size-full',
     shape: 'metaballs' as const,
     colorBack: '#00000000',
-    colorTint: '#93a6ba',
+    colorTint: tint,
     angle: 35,
     scale: 2.6,
     offsetX: 0.32,
