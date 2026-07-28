@@ -12,8 +12,10 @@ export function SiteFooter() {
   return (
     <footer className="border-line border-t">
       <div className="container-page py-14 text-center">
+        {/* The hero already says he is open to work. Repeating it here would
+            be the page telling a reader something they were told at the top. */}
         <p className="text-xl font-medium tracking-tight text-balance">
-          Currently looking for internships and research collaboration.
+          Thanks for reading this far.
         </p>
         <a
           href={`mailto:${site.email}`}
@@ -45,15 +47,13 @@ export function SiteFooter() {
           </a>
         </div>
 
-        {/* A colophon is a small thing, and it says the build was deliberate. */}
-        <p className="text-ink-subtle mx-auto mt-10 max-w-xl text-xs leading-relaxed">
-          Built with Next.js, Tailwind and shadcn/ui. The hero shader is Paper Design. The
-          similarity map is computed offline with all-MiniLM-L6-v2 and PCA, and the script that
-          produces it is in the repository. The epoch bar is scroll position drawn as a training
-          run, and it says so when you hover it.
-        </p>
-
-        <p className="text-ink-subtle mt-6 text-xs">
+        {/*
+         * No colophon. It used to list the libraries and then explain how the
+         * epoch bar and the similarity map worked, which is the site defending
+         * its own ideas in the footer. Anyone who wants to know can read the
+         * repository, and everyone else was being talked at.
+         */}
+        <p className="text-ink-subtle mt-12 text-xs">
           <span className="tabular">&copy; {new Date().getFullYear()}</span> {site.name}
           <span className="mx-2" aria-hidden>
             ·

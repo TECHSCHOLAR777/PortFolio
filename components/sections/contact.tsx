@@ -4,7 +4,6 @@ import { Check, Loader2, Send } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
 
 import { SectionHeading } from '@/components/section-heading'
-import { useTraining } from '@/components/training/progress-provider'
 import { Button } from '@/components/ui/button'
 import { site } from '@/content/site'
 import { cn } from '@/lib/utils'
@@ -20,7 +19,6 @@ const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''
 export function Contact() {
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
-  const { converged } = useTraining()
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -48,16 +46,23 @@ export function Contact() {
     <section id="contact" className="section-y">
       <div className="container-page">
         <SectionHeading
-          index="10"
-          label="Inference"
-          title={converged ? 'Training complete. Send it a task.' : 'Get in touch'}
-          intro="Open to internships and research collaboration."
+          index="09"
+          label="Contact"
+          title="Get in touch"
+          intro="The form goes straight to my inbox. Email works just as well."
         />
 
         <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-3">
+          {/*
+           * This button said "Download weights" once the epoch bar converged.
+           * It was the payoff of the whole device and it was also the one
+           * moment a visitor most needs the button to say what it does, so the
+           * joke was charging them for it. The bar reaching "converged" is
+           * payoff enough.
+           */}
           <Button asChild size="lg">
             <a href={site.resume} download>
-              {converged ? 'Download weights' : 'Download resume'}
+              Download resume
             </a>
           </Button>
           <Button asChild size="lg" variant="outline">

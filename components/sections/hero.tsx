@@ -18,12 +18,16 @@ export function Hero() {
       />
 
       <div className="container-page relative py-20 text-center">
-        <p className="text-muted-foreground text-xs tracking-wide">
-          <span className="tabular text-signal">rishi-garg-v2</span>
-          <span className="mx-2" aria-hidden>
-            ·
-          </span>
-          model card
+        {/*
+         * The kicker used to read "rishi-garg-v2 · model card", which announced
+         * the conceit before the reader had any reason to care about it and
+         * framed the whole page as a gimmick. The section labels still carry
+         * the idea, quietly, which is the only way it works. This slot now
+         * holds something a visitor can act on.
+         */}
+        <p className="text-muted-foreground inline-flex items-center gap-2 text-xs tracking-wide">
+          <span className="bg-signal size-1.5 rounded-full" aria-hidden />
+          Open to internships and research collaboration
         </p>
 
         <h1 className="mx-auto mt-6 max-w-3xl text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">

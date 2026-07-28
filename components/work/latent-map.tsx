@@ -169,18 +169,18 @@ export function LatentMap() {
             {((pc1 + pc2) * 100).toFixed(1)}% of variance in two dimensions
           </span>
         </p>
+        {/*
+         * Two lines, not four. A chart should say how to read it and where the
+         * numbers came from. It should not also point at the script that made
+         * it and invite applause.
+         */}
         <p className="leading-relaxed">
-          The horizontal axis separates work with a camera or microphone in the loop from work that
-          is purely statistical. The vertical axis separates offline model training from systems that
-          hold a live conversation. Lines connect projects whose descriptions score above cosine{' '}
-          <span className="tabular">{latentMap.edgeThreshold}</span>. Hover a node to read the exact
-          value.
+          Left to right: camera and microphone in the loop, through to purely statistical. Bottom to
+          top: live conversation, through to offline training. Hover a node for its cosine.
         </p>
         <p>
-          Six summaries embedded with{' '}
-          <span className="tabular">all-MiniLM-L6-v2</span>, reduced with PCA. The script that
-          produced this is in the repository at{' '}
-          <span className="tabular">scripts/embed_projects.py</span>.
+          Project summaries embedded with <span className="tabular">all-MiniLM-L6-v2</span>, reduced
+          with PCA.
         </p>
       </div>
     </div>
