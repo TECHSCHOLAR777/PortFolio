@@ -36,7 +36,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl font-[family-name:var(--font-heading)] text-xl leading-snug font-medium sm:text-2xl">
-            Teaching machines to understand people.
+            Building AI that understands people.
           </p>
           <p className="text-muted-foreground mt-3 max-w-xl leading-relaxed">
             Second year software engineering at Delhi Technological University. Researcher at VAIL.
