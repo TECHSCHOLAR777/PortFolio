@@ -41,7 +41,7 @@ export function Cmd({ run, children }: { run: string; children?: ReactNode }) {
     <button
       type="button"
       onClick={() => shell.run(run)}
-      className="text-signal decoration-signal/40 hover:bg-signal hover:text-signal-ink cursor-pointer underline underline-offset-2"
+      className="text-signal decoration-signal/40 hover:bg-signal hover:text-signal-ink cursor-pointer justify-self-start text-left underline underline-offset-2"
     >
       {children ?? run}
     </button>
@@ -67,7 +67,7 @@ function Heading({ children }: { children: ReactNode }) {
 
 function Row({ k, children }: { k: string; children: ReactNode }) {
   return (
-    <div className="grid grid-cols-[9.5rem_1fr] gap-x-3">
+    <div className="grid gap-x-3 sm:grid-cols-[9.5rem_1fr]">
       <span className="text-signal">{k}</span>
       <span>{children}</span>
     </div>
@@ -80,7 +80,7 @@ function EvalTable({ project }: { project: Project }) {
   return (
     <div className="mt-1 space-y-0.5">
       {project.evals.map((row) => (
-        <div key={row.metric} className="grid grid-cols-[minmax(0,15rem)_1fr] gap-x-3">
+        <div key={row.metric} className="grid gap-x-3 sm:grid-cols-[minmax(0,15rem)_1fr]">
           <span className={muted}>{row.metric}</span>
           <span>
             <span className="text-signal font-bold">{row.value}</span>
@@ -170,7 +170,7 @@ export const commands: Command[] = [
       <div>
         <Heading>~/projects</Heading>
         {projects.map((p) => (
-          <div key={p.slug} className="grid grid-cols-[13rem_1fr] gap-x-3">
+          <div key={p.slug} className="grid gap-x-3 pb-1 sm:grid-cols-[13rem_1fr] sm:pb-0">
             <Cmd run={`cat ${p.slug}`}>{`${p.slug}.md`}</Cmd>
             <span className={muted}>{p.tagline}</span>
           </div>
@@ -269,7 +269,7 @@ export const commands: Command[] = [
       <div>
         <Heading>education</Heading>
         {education.map((e) => (
-          <div key={e.qualification} className="grid grid-cols-[minmax(0,22rem)_1fr] gap-x-3">
+          <div key={e.qualification} className="grid gap-x-3 pb-1 sm:grid-cols-[minmax(0,22rem)_1fr] sm:pb-0">
             <span>
               <span className="text-signal">{e.qualification}</span>
               <span className={muted}>{`, ${e.institution}`}</span>

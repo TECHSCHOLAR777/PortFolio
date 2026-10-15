@@ -245,7 +245,7 @@ export function Terminal() {
   return (
     <ShellContext.Provider value={shell}>
       <div
-        className="terminal-shell bg-background fixed inset-0 z-[60] flex-col p-2 font-mono text-[13px] leading-relaxed sm:p-4 lg:p-6"
+        className="terminal-shell bg-background fixed inset-0 z-[60] flex-col p-2 font-mono text-[12px] leading-relaxed sm:p-4 sm:text-[13px] lg:p-6"
         onClick={() => {
           if (!window.getSelection()?.toString()) inputRef.current?.focus({ preventScroll: true })
         }}

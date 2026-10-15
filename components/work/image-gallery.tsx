@@ -166,8 +166,8 @@ export function ImageGallery({ images }: { images: ProjectImage[] }) {
           </CarouselContent>
           {rest.length > 1 ? (
             <>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex" />
+              <CarouselPrevious className="hidden lg:flex" />
+              <CarouselNext className="hidden lg:flex" />
             </>
           ) : null}
         </Carousel>

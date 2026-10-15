@@ -99,9 +99,9 @@ export function WorkViews() {
                     className="border-line-strong bg-surface-alt hover:border-signal group mt-8 block overflow-hidden border-2 transition-colors"
                   >
                     {/*
-                     * Fixed ratio across all three. Left at their natural
-                     * heights the covers came out at 535, 658 and 691 pixels,
-                     * which reads as three accidents rather than one set.
+                     * Screenshots share one 16:9 frame so the set reads as a
+                     * set. Diagrams keep their own ratio: cropping a wide
+                     * architecture diagram cuts off its outer columns.
                      */}
                     <Image
                       src={cover.src}
@@ -109,7 +109,11 @@ export function WorkViews() {
                       width={cover.width}
                       height={cover.height}
                       sizes="(max-width: 768px) 100vw, 1024px"
-                      className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                      className={
+                        cover.kind === 'diagram'
+                          ? 'h-auto w-full'
+                          : 'aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'
+                      }
                     />
                   </Link>
                 ) : (

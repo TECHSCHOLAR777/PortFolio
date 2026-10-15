@@ -97,7 +97,7 @@ function BoundaryToast() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.18 }}
-          className="bg-popover text-popover-foreground border-border pointer-events-none absolute top-full left-1/2 mt-2 -translate-x-1/2 border px-3 py-1.5 text-xs shadow-sm"
+          className="bg-popover text-popover-foreground border-border pointer-events-none absolute top-full left-1/2 mt-2 hidden -translate-x-1/2 rounded-md border px-3 py-1.5 text-xs whitespace-nowrap shadow-sm sm:block"
           role="status"
         >
           <span className="tabular text-signal">
