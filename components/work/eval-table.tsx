@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 export function EvalTable({ rows, note }: { rows: EvalRow[]; note?: string }) {
   return (
     <div>
-      <div className="border-border overflow-x-auto rounded-lg border">
+      <div className="border-border overflow-x-auto border">
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">

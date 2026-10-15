@@ -45,7 +45,7 @@ export function Architecture() {
                       <TooltipTrigger asChild>
                         <span
                           className={cn(
-                            'inline-block cursor-default rounded-full border px-2.5 py-1 text-xs',
+                            'inline-block cursor-default border font-mono uppercase tracking-wider text-[11px] px-2.5 py-1',
                             levelStyle[item.level]
                           )}
                         >

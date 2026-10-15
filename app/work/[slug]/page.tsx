@@ -52,7 +52,7 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
             </Button>
 
             <p className="text-muted-foreground text-xs">{project.period}</p>
-            <h1 className="mt-3 text-4xl font-medium tracking-tight text-balance sm:text-5xl">
+            <h1 className="text-signal mt-3 text-6xl sm:text-8xl">
               {project.title}
             </h1>
             <p className="text-muted-foreground container-prose mt-5 leading-relaxed">
@@ -63,7 +63,7 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
               {project.stack.map((tech) => (
                 <li
                   key={tech}
-                  className="border-border text-muted-foreground rounded-full border px-2.5 py-1 text-xs"
+                  className="border-line-strong text-muted-foreground border px-2 py-0.5 font-mono text-[10px] tracking-wider uppercase"
                 >
                   {tech}
                 </li>
@@ -81,10 +81,9 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
               ))}
             </div>
 
-            {project.teamRepo ? (
+            {project.teamNote ? (
               <p className="text-muted-foreground mx-auto mt-5 max-w-md text-xs">
-                Built as a team entry. The training notebook lives in a teammate repository, so it
-                does not appear under my own GitHub activity.
+                {project.teamNote}
               </p>
             ) : null}
           </header>

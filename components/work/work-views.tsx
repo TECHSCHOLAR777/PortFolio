@@ -7,7 +7,46 @@ import Link from 'next/link'
 import { LatentMap } from '@/components/work/latent-map'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { featuredProjects } from '@/content/projects'
+import { featuredProjects, type Project } from '@/content/projects'
+
+/**
+ * Cover for a project with no screenshot: its headline numbers, set large on
+ * caution tape, read straight from the eval rows so nothing is restated.
+ */
+function ScorePlate({ project }: { project: Project }) {
+  const [lead, ...rest] = project.evals
+  return (
+    <Link
+      href={`/work/${project.slug}`}
+      className="border-line-strong bg-background hover:border-signal group mt-8 block overflow-hidden border-2 transition-colors"
+    >
+      <div aria-hidden className="hazard-tape h-3" />
+      <div className="grid aspect-[16/9] place-items-center px-6 py-10">
+        <div>
+          <p className="text-muted-foreground font-mono text-[11px] tracking-widest uppercase">
+            {lead.metric}
+          </p>
+          <p className="text-signal mt-2 font-[family-name:var(--font-display)] text-6xl leading-none uppercase sm:text-8xl">
+            {lead.value}
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-4">
+            {rest.slice(0, 3).map((row) => (
+              <div key={row.metric}>
+                <p className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl">
+                  {row.value}
+                </p>
+                <p className="text-muted-foreground mt-1 font-mono text-[10px] tracking-widest uppercase">
+                  {row.metric}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div aria-hidden className="hazard-tape h-3" />
+    </Link>
+  )
+}
 
 /**
  * The list is the default and the map is opt in.
@@ -32,9 +71,11 @@ export function WorkViews() {
           {featuredProjects.map((project) => {
             const cover = project.images[0]
             return (
-              <article key={project.slug} className="text-center">
-                <p className="text-muted-foreground text-xs">{project.period}</p>
-                <h3 className="mt-2 text-2xl font-medium tracking-tight sm:text-3xl">
+              <article key={project.slug} className="brutal p-6 text-center sm:p-10">
+                <p className="text-muted-foreground font-mono text-[11px] tracking-widest uppercase">
+                  {project.period}
+                </p>
+                <h3 className="text-signal mt-2 font-[family-name:var(--font-display)] text-4xl font-normal tracking-wide uppercase sm:text-5xl">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground container-prose mt-3 leading-relaxed">
@@ -45,7 +86,7 @@ export function WorkViews() {
                   {project.stack.slice(0, 6).map((tech) => (
                     <li
                       key={tech}
-                      className="border-border text-muted-foreground rounded-full border px-2.5 py-1 text-xs"
+                      className="border-line-strong text-muted-foreground border px-2 py-0.5 font-mono text-[10px] tracking-wider uppercase"
                     >
                       {tech}
                     </li>
@@ -55,7 +96,7 @@ export function WorkViews() {
                 {cover ? (
                   <Link
                     href={`/work/${project.slug}`}
-                    className="border-border bg-surface-alt hover:border-signal/50 group mt-8 block overflow-hidden rounded-lg border transition-colors"
+                    className="border-line-strong bg-surface-alt hover:border-signal group mt-8 block overflow-hidden border-2 transition-colors"
                   >
                     {/*
                      * Fixed ratio across all three. Left at their natural
@@ -71,7 +112,9 @@ export function WorkViews() {
                       className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </Link>
-                ) : null}
+                ) : (
+                  <ScorePlate project={project} />
+                )}
 
                 <div className="mt-6 flex flex-wrap justify-center gap-2">
                   <Button asChild>

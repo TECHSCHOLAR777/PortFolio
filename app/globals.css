@@ -3,61 +3,56 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ──────────────────────────────────────────────────────────────────────────
-   ONE SEMANTIC TOKEN SYSTEM
+   HAZARD CONSOLE TOKENS
 
-   The first build of this site had two vocabularies fighting: a full custom
-   Tailwind theme that nothing imported, and 187 lines of hand written CSS on a
-   different palette. The rebuild removed both but replaced them with shadcn
-   defaults plus improvised opacities (bg-muted/25, bg-card/40, border-border/70)
-   scattered through the components, which is the same problem wearing a
-   tidier shirt: no shared name for "the surface one step up from the page".
+   Named base tokens for surface, line and text, with the shadcn tokens as
+   aliases pointing at them through var(). Overriding a base token in one
+   block re-resolves every alias, so each theme is designed on its own.
 
-   So: named base tokens for surface, line and text, with the shadcn tokens as
-   aliases pointing at them through var(). Overriding a base token in the dark
-   block re-resolves every alias that references it, so light and dark are each
-   designed rather than one being an inversion of the other.
-
-   Palette: warm graphite surfaces with a cool signal accent. Warm neutrals
-   because pure cool grey is what a page defaults to when nobody chose; a cool
-   accent because the site is full of readouts and a warm surface with a cold
-   readout is how instruments have always looked. The accent means state,
-   epoch progress, active nav, focus, chart series, and nothing else.
+   Dark is the default: near black with hazard yellow as the signal and a red
+   reserved for alerts, live states and the cursor. Light is the same system
+   inverted onto yellow paper with black ink. Yellow means "look here", red
+   means "this is happening now", and neither is used as decoration.
    ────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* ── Surfaces: warm paper ── */
-  --bg: #f4f2ed;
-  --bg-recessed: #eceae3;
-  --surface: #fbfaf7;
-  --surface-alt: #efece5;
-  --surface-hover: #e7e4db;
+  /* ── Surfaces: yellow paper ── */
+  --bg: #ffd84a;
+  --bg-recessed: #f5cb2c;
+  --surface: #ffe27a;
+  --surface-alt: #f9d140;
+  --surface-hover: #efc21d;
 
   /* ── Lines ── */
-  --line: rgba(28, 26, 23, 0.12);
-  --line-strong: rgba(28, 26, 23, 0.2);
+  --line: rgba(10, 10, 10, 0.22);
+  --line-strong: rgba(10, 10, 10, 0.55);
 
-  /* ── Text, contrast measured against --surface ── */
-  --ink: #1c1a17;
-  --ink-muted: #5f5b54;
-  --ink-subtle: #8a857c;
+  /* ── Text ── */
+  --ink: #0a0a0a;
+  --ink-muted: #2e2a1c;
+  --ink-subtle: #5c5434;
 
-  /* ── Cool signal accent ── */
-  --signal: #0e7490;
-  --signal-hover: #0c5f76;
-  --signal-soft: rgba(14, 116, 144, 0.1);
-  --signal-ink: #ffffff;
+  /* ── Signal: black on yellow paper ── */
+  --signal: #0a0a0a;
+  --signal-hover: #2a2a2a;
+  --signal-soft: rgba(10, 10, 10, 0.1);
+  --signal-ink: #ffd400;
 
-  /* ── Type scale. Body sits at a reading size, not a dashboard 13px. ── */
+  /* ── Alert red ── */
+  --alert: #c8001a;
+  --alert-soft: rgba(200, 0, 26, 0.12);
+
+  /* ── Type scale ── */
   --text-2xs: 11px;
   --text-xs: 12.5px;
   --text-sm: 13.5px;
   --text-base: 15px;
   --text-lg: 17px;
 
-  --radius: 0.625rem;
+  /* Brutalist: square corners everywhere. */
+  --radius: 0rem;
 
-  /* The metal reads molten in the hero and cools as the page trains. */
-  --metal-tint: #93a6ba;
+  --metal-tint: #c8001a;
 
   /* ── shadcn aliases. Defined once, here only. ── */
   --background: var(--bg);
@@ -74,48 +69,51 @@
   --muted-foreground: var(--ink-muted);
   --accent: var(--surface-hover);
   --accent-foreground: var(--ink);
-  --destructive: #b42318;
+  --destructive: var(--alert);
   --destructive-foreground: #ffffff;
   --border: var(--line);
   --input: var(--line);
-  --ring: var(--signal);
+  --ring: var(--alert);
 
-  --chart-1: var(--signal);
-  --chart-2: #7c6f9e;
-  --chart-3: #2f7d6a;
-  --chart-4: #a4682f;
+  --chart-1: var(--alert);
+  --chart-2: #0a0a0a;
+  --chart-3: #6b4f00;
+  --chart-4: #8a3b00;
   --chart-5: var(--ink-subtle);
 }
 
-/* ── DARK: warm graphite, not blue black ── */
+/* ── DARK: hazard black ── */
 .dark {
-  --bg: #0c0b0a;
-  --bg-recessed: #100f0e;
-  --surface: #151413;
-  --surface-alt: #1c1a19;
-  --surface-hover: #24221f;
+  --bg: #0a0a0a;
+  --bg-recessed: #070707;
+  --surface: #121212;
+  --surface-alt: #181818;
+  --surface-hover: #202020;
 
-  --line: rgba(255, 255, 255, 0.1);
-  --line-strong: rgba(255, 255, 255, 0.18);
+  --line: rgba(255, 212, 0, 0.14);
+  --line-strong: rgba(255, 212, 0, 0.4);
 
-  --ink: #f2f0eb;
-  --ink-muted: #a8a49d;
-  --ink-subtle: #75716a;
+  --ink: #f5f1e6;
+  --ink-muted: #b4ad9c;
+  --ink-subtle: #7d7768;
 
-  --signal: #3fc7de;
-  --signal-hover: #6bd8ea;
-  --signal-soft: rgba(63, 199, 222, 0.14);
-  --signal-ink: #04202a;
+  --signal: #ffd400;
+  --signal-hover: #ffe24d;
+  --signal-soft: rgba(255, 212, 0, 0.12);
+  --signal-ink: #0a0a0a;
 
-  --destructive: #ff9a8f;
-  --destructive-foreground: #2a1614;
+  --alert: #ff2e2e;
+  --alert-soft: rgba(255, 46, 46, 0.14);
 
-  --chart-2: #b89af4;
-  --chart-3: #55d6a0;
-  --chart-4: #f0a15c;
+  --ring: var(--signal);
+
+  --chart-1: var(--signal);
+  --chart-2: #ff2e2e;
+  --chart-3: #f5f1e6;
+  --chart-4: #ff8a00;
   --chart-5: var(--ink-subtle);
 
-  --metal-tint: #6d7d8f;
+  --metal-tint: #ffd400;
 }
 
 @theme inline {
@@ -152,6 +150,9 @@
   --color-ink-subtle: var(--ink-subtle);
   --color-signal: var(--signal);
   --color-signal-soft: var(--signal-soft);
+  --color-signal-ink: var(--signal-ink);
+  --color-alert: var(--alert);
+  --color-alert-soft: var(--alert-soft);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -165,9 +166,10 @@
    * mono, which was the loudest tell in the old build. Geist Sans stays on
    * body copy, where it is quieter and better at small sizes.
    */
+  --font-display: var(--font-anton), Impact, 'Arial Narrow', sans-serif;
   --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-mono: var(--font-jetbrains), var(--font-geist-mono), ui-monospace, monospace;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -195,13 +197,22 @@
 
   /* Headings only. Space Grotesk is wide and a little mechanical, which reads
      well large and poorly at caption size, so it never touches body copy. */
-  h1,
-  h2,
   h3,
   h4 {
     font-family: var(--font-heading);
     text-wrap: balance;
     letter-spacing: -0.015em;
+  }
+
+  /* The two big levels are set in a condensed poster face, upper case. */
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-wrap: balance;
+    letter-spacing: 0.005em;
+    line-height: 0.95;
   }
 
   p {
@@ -216,7 +227,8 @@
   }
 
   ::selection {
-    background: var(--signal-soft);
+    background: var(--signal);
+    color: var(--signal-ink);
   }
 
   ::-webkit-scrollbar {
@@ -229,10 +241,10 @@
   ::-webkit-scrollbar-thumb {
     background: var(--line-strong);
     border: 2px solid var(--bg-recessed);
-    border-radius: 6px;
+    border-radius: 0;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--ink-subtle);
+    background: var(--signal);
   }
 }
 
@@ -287,5 +299,196 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HAZARD CONSOLE EFFECTS
+   ────────────────────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  /* Caution tape: yellow and black at 45 degrees. */
+  .hazard-tape {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #ffd400 0 14px,
+      #0a0a0a 14px 28px
+    );
+  }
+
+  /* Brutalist card: hard border, lifts onto a red offset shadow on hover. */
+  .brutal {
+    border: 2px solid var(--line-strong);
+    background: var(--surface);
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      border-color 160ms ease;
+  }
+  .brutal:hover,
+  .brutal:focus-within {
+    border-color: var(--signal);
+    transform: translate(-4px, -4px);
+    box-shadow: 6px 6px 0 0 var(--alert);
+  }
+
+  /* Pulsing red dot for live state. */
+  .live-dot {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--alert);
+  }
+  .live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--alert);
+    animation: live-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1.5px var(--signal);
+    color: transparent;
+  }
+
+  /* Red and yellow split on a short cycle, for the big name only. */
+  .glitch {
+    position: relative;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    white-space: inherit;
+  }
+  .glitch::before {
+    color: var(--alert);
+    mix-blend-mode: screen;
+    animation: glitch-a 3.2s steps(1) infinite;
+  }
+  .glitch::after {
+    color: #4de1ff;
+    mix-blend-mode: screen;
+    opacity: 0.55;
+    animation: glitch-b 3.2s steps(1) infinite;
+  }
+
+  .marquee-track {
+    animation: marquee 38s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes live-ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes glitch-a {
+  0%,
+  86%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: none;
+  }
+  87% {
+    clip-path: inset(12% 0 58% 0);
+    transform: translate(-4px, 0);
+  }
+  90% {
+    clip-path: inset(62% 0 8% 0);
+    transform: translate(3px, 0);
+  }
+  93% {
+    clip-path: inset(34% 0 40% 0);
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes glitch-b {
+  0%,
+  86%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: none;
+  }
+  88% {
+    clip-path: inset(48% 0 22% 0);
+    transform: translate(4px, 0);
+  }
+  92% {
+    clip-path: inset(6% 0 74% 0);
+    transform: translate(-3px, 0);
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Film grain and scanlines over the whole page, never interactive. */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+}
+:root:not(.dark) .crt-overlay {
+  opacity: 0.05;
+}
+
+/* ── Mode switch. The terminal is server rendered and hidden until an inline
+   script in <head> sets data-mode before first paint, so there is no flash
+   of the graphical page on the way to the terminal. ── */
+.terminal-shell {
+  display: none;
+}
+html[data-mode='terminal'] .terminal-shell {
+  display: flex;
+}
+html[data-mode='terminal']:has(.terminal-shell) body {
+  overflow: hidden;
+}
+
+.term-caret {
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before,
+  .glitch::after,
+  .live-dot::after,
+  .term-caret {
+    animation: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
   }
 }

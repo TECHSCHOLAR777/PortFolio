@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
-import { Space_Grotesk } from 'next/font/google'
+import { Anton, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 
+import { modeScript } from '@/components/mode/mode-script'
 import { ThemeProvider } from '@/components/theme-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { site } from '@/content/site'
@@ -10,14 +11,25 @@ import { site } from '@/content/site'
 import './globals.css'
 
 /*
- * Two faces, one job each.
- *
- * Space Grotesk is built on a monospace skeleton, so headings echo the
- * numerals and readouts that run through this site without the page being set
- * in mono, which is what made the previous build look templated. It is wide
- * and slightly mechanical, which reads well large and badly small, so it never
- * touches body copy. Geist Sans keeps that job.
+ * Four faces, one job each. Anton is the poster face for the two big heading
+ * levels. JetBrains Mono runs the terminal and every number. Space Grotesk
+ * carries small headings, where Anton gets cramped, and Geist Sans keeps body
+ * copy, where it is quietest.
  */
+const anton = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-anton',
+  display: 'swap',
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+})
+
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['500', '600'],
@@ -54,12 +66,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable} ${anton.variable} ${jetbrains.variable}`}
     >
+      <head>
+        {/* Runs before first paint so the terminal never flashes the page under it. */}
+        <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+      </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
         </ThemeProvider>
+        <div aria-hidden className="crt-overlay" />
       </body>
     </html>
   )

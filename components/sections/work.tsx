@@ -11,7 +11,7 @@ export function Work() {
         <SectionHeading
           index="03"
           label="Selected work"
-          title="Six systems, with the numbers behind them"
+          title="Seven builds, with the numbers behind them"
           intro="Each figure carries the data it came from and how it was produced."
         />
 
