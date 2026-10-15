@@ -47,6 +47,7 @@ export const skillGroups: SkillGroup[] = [
       { name: 'OpenCV', level: 'working' },
       { name: 'MediaPipe', level: 'working' },
       { name: 'Whisper', level: 'comfortable' },
+      { name: 'Speech to text (STT)', level: 'comfortable' },
       { name: 'Vosk', level: 'comfortable' },
       { name: 'Chatterbox TTS', level: 'comfortable' },
     ],
@@ -104,12 +105,20 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    role: 'AI and ML researcher',
+    org: 'Vision and Interpretability Lab (VAIL)',
+    period: 'From August 2026',
+    status: 'ongoing',
+    detail:
+      'Research in computer vision and multimodal representation learning. Finished in the top 20 of Track 2 at the NeurIPS 2026 RealPDE Competition with a final score of 81.82.',
+  },
+  {
     role: 'AI and ML research intern',
     org: 'Delhi Technological University',
     period: 'From June 2026',
     status: 'ongoing',
     detail:
-      'Research in representation learning, working on efficiency of architectures for multimodal sequence data.',
+      'Research on complexity reduction for the ChARM architecture, with an emphasis on scalable temporal and inter channel modelling in multimodal time series learning.',
   },
   {
     role: 'AI and ML research intern',
@@ -119,12 +128,12 @@ export const experience: Experience[] = [
     detail: 'Research in representation learning applied to video understanding.',
   },
   {
-    role: 'Member',
+    role: 'Co-Head',
     org: 'AIMS-DTU',
     period: '2025 to present',
     status: 'ongoing',
     detail:
-      'Study group where I worked through classical machine learning and deep learning with the university artificial intelligence society.',
+      'Co-Head of the university artificial intelligence society, where I first worked through classical machine learning and deep learning in its study group.',
   },
 ]
 
@@ -140,7 +149,7 @@ export const education: Education[] = [
     qualification: 'B.Tech, Software Engineering',
     institution: 'Delhi Technological University, New Delhi',
     period: '2025 to 2029',
-    result: 'SGPA 9.90, second in the department',
+    result: 'CGPA 9.70, second in the department',
   },
   {
     qualification: 'CBSE Class XII',
@@ -199,6 +208,13 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
+    title: 'Top 20 internationally, NeurIPS 2026 RealPDE Competition',
+    detail:
+      'Track 2, long term test time adaptation. Ranked 18th of 98 teams with a final score of 81.82, competing for VAIL.',
+    year: '2026',
+    url: 'https://www.codabench.org/competitions/17385/',
+  },
+  {
     title: 'Top 10 nationally, ISRO Bharatiya Antariksh Hackathon 2026',
     detail: 'Problem statement 11, cross modal satellite image retrieval. Built PT-JEPA.',
     year: '2026',
@@ -211,7 +227,7 @@ export const achievements: Achievement[] = [
   },
   {
     title: 'Second in the Software Engineering department',
-    detail: 'Delhi Technological University, SGPA 9.90.',
+    detail: 'Delhi Technological University, CGPA 9.70.',
     year: '2025 to 2026',
   },
   {
@@ -227,7 +243,7 @@ export const achievements: Achievement[] = [
     url: 'https://drive.google.com/file/d/1-D-0KAr0_DOOEZyBJEsUH3UGa1JjCJfW/view?usp=sharing',
   },
   {
-    title: 'JEE Main 2025, top 1% nationally',
+    title: 'JEE Main 2025, 99+ percentile, top 1% nationally',
     detail: 'All India Rank 14,182 among more than a million candidates.',
     year: '2025',
   },

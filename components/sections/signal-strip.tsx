@@ -1,7 +1,8 @@
 import { LiveStats } from '@/components/live-stats'
 
 const facts = [
-  { value: '9.90', label: 'SGPA at DTU', note: 'second in the department' },
+  { value: '9.70', label: 'CGPA at DTU', note: 'second in the department' },
+  { value: 'Top 20', label: 'NeurIPS 2026 RealPDE', note: 'Track 2, 18th of 98 teams' },
   { value: 'Top 10', label: 'ISRO hackathon 2026', note: 'national, problem statement 11' },
   { value: '6', label: 'systems shipped', note: 'from edge inference to retrieval' },
 ]
@@ -13,7 +14,7 @@ export function SignalStrip() {
        * Vertical rules between tiles. Without them these read as five numbers
        * floating in a row rather than as one instrument panel.
        */}
-      <div className="container-page divide-line grid grid-cols-2 divide-x md:grid-cols-5">
+      <div className="container-page divide-line grid grid-cols-2 divide-x md:grid-cols-6">
         {facts.map((fact) => (
           <div key={fact.label} className="px-3 py-8 text-center md:py-10">
             <p className="tabular text-2xl font-medium tracking-tight sm:text-3xl">{fact.value}</p>

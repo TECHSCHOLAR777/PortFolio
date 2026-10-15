@@ -2,7 +2,8 @@
  * Projects.
  *
  * Rule that governs this file: every number traces to one of three sources,
- * the resume PDFs, BAH/RESULTS_AND_CONCLUSIONS.md, or a live API. Where a
+ * the resume PDFs, BAH/RESULTS_AND_CONCLUSIONS.md, the public Codabench
+ * leaderboard for RealPDE, or a live API. Where a
  * quantity was never measured, the eval row says so rather than guessing.
  *
  * PT-JEPA is the only project with training artifacts on disk, so it is the
@@ -32,7 +33,13 @@ export type Project = {
   title: string
   tagline: string
   period: string
-  domain: 'representation learning' | 'human interfaces' | 'agents' | 'edge' | 'systems'
+  domain:
+    | 'representation learning'
+    | 'scientific ml'
+    | 'human interfaces'
+    | 'agents'
+    | 'edge'
+    | 'systems'
   featured: boolean
   /** Plain prose used by scripts/embed_projects.py to build the latent map. */
   summary: string
@@ -42,10 +49,88 @@ export type Project = {
   evalNote?: string
   images: ProjectImage[]
   links: { label: string; url: string }[]
-  teamRepo?: boolean
+  /** Shown under the links on the case study when the work was a team effort. */
+  teamNote?: string
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'realpde',
+    title: 'RealPDE, NeurIPS 2026',
+    tagline: 'Forecasting real turbulent airflow with a model that adapts while it runs.',
+    period: 'August to September 2026, with VAIL',
+    domain: 'scientific ml',
+    featured: true,
+    summary:
+      'Competition entry for both tracks of the NeurIPS 2026 RealPDE Competition, built with the Vision and Interpretability Lab under the team name probability. The task is to forecast real flow around a NACA 4418 airfoil, measured with particle image velocimetry and paired with CFD simulations. Track 2 asks a model to forecast the measured flow far ahead and adapt to each trajectory at test time, under a fixed time budget per step, scored on hidden data for error, turbulent kinetic energy, mean velocity profile, speed and calibrated uncertainty bands.',
+    contribution: [
+      'Moved from the organisers frozen Fourier neural operator to a team trained line, then to a from scratch U-Net that carried the whole forecast and cut the graded step time from 8.78 ms to 5.61 ms.',
+      'Captured the full forecast and output stage in a single CUDA graph, so every per step correction runs inside the time budget.',
+      'Added small causal output heads that read only the input window and its history: a variance net, a mean corrector and a band net, trained on out of fold replay so their gains transferred to the hidden set.',
+      'Built local held out test beds and gated every idea on them before spending the one submission allowed per day.',
+    ],
+    stack: ['PyTorch', 'CUDA Graphs', 'U-Net', 'Fourier neural operator', 'Python', 'Codabench'],
+    evals: [
+      {
+        metric: 'Track 2 rank',
+        value: '18th of 98 teams',
+        dataset: 'final development leaderboard, hidden validation data',
+        method: 'read from the public Codabench leaderboard at phase close',
+      },
+      {
+        metric: 'Track 2 final score',
+        value: '81.82',
+        dataset: 'hidden validation data',
+        method: 'organiser composite of the five subscores below',
+      },
+      {
+        metric: 'Relative L2 score',
+        value: '94.73',
+        dataset: 'hidden validation data',
+        method: 'organiser scorer, Codabench detailed result',
+      },
+      {
+        metric: 'Turbulent kinetic energy score',
+        value: '79.84',
+        dataset: 'hidden validation data',
+        method: 'organiser scorer, Codabench detailed result',
+      },
+      {
+        metric: 'Mean velocity profile score',
+        value: '94.35',
+        dataset: 'hidden validation data',
+        method: 'organiser scorer, Codabench detailed result',
+      },
+      {
+        metric: 'Uncertainty band score',
+        value: '43.44',
+        dataset: 'hidden validation data',
+        method: 'organiser scorer, Codabench detailed result',
+      },
+      {
+        metric: 'Progress over the phase',
+        value: '76.49 to 81.82',
+        dataset: 'Track 2 leaderboard',
+        method: 'first scored submission on 23 August against the final one',
+      },
+      {
+        metric: 'Track 1 rank',
+        value: '34th of 182 teams, score 81.28',
+        dataset: 'simulation to real transfer, hidden validation data',
+        method: 'read from the public Codabench leaderboard at phase close',
+      },
+    ],
+    evalNote:
+      'All scores come from the organiser scorer on the hidden leaderboard set. The private test set is scored only for the top 10 after a retrain, so no private number exists for this entry.',
+    images: [],
+    links: [
+      { label: 'Track 2 leaderboard', url: 'https://www.codabench.org/competitions/17385/' },
+      { label: 'Track 1 leaderboard', url: 'https://www.codabench.org/competitions/17363/' },
+      { label: 'VAIL', url: 'https://www.vai-lab.org/research' },
+    ],
+    teamNote:
+      'Built as a team entry for VAIL with Taher Merchant and Aarush Mahajan. The competition code lives in a private team repository.',
+  },
   {
     slug: 'pt-jepa',
     title: 'PT-JEPA',
@@ -149,7 +234,8 @@ export const projects: Project[] = [
       { label: 'Training notebook', url: 'https://github.com/Rudransh-1508/ISRO-BAH' },
       { label: 'Video demo', url: 'https://youtu.be/DiAUPrpIJ04' },
     ],
-    teamRepo: true,
+    teamNote:
+      'Built as a team entry. The training notebook lives in a teammate repository, so it does not appear under my own GitHub activity.',
   },
   {
     slug: 'octave',

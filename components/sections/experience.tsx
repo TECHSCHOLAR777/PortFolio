@@ -16,8 +16,9 @@ export function Experience() {
                 <h3 className="flex items-center gap-2 font-medium">
                   {item.role}
                   {item.status === 'ongoing' ? (
-                    <span className="border-signal/30 bg-signal-soft text-signal rounded-full border px-2 py-0.5 text-xs font-normal">
-                      ongoing
+                    <span className="border-alert/60 bg-alert-soft text-alert inline-flex items-center gap-1.5 border px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest">
+                      <span className="live-dot" aria-hidden />
+                      LIVE
                     </span>
                   ) : null}
                 </h3>

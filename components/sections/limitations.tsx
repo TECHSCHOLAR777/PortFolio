@@ -20,18 +20,13 @@ export function Limitations() {
           intro="Two years into a four year degree. These are the edges of what I have done."
         />
 
-        <ul className="container-prose mt-12 grid gap-px sm:grid-cols-2">
+        <ul className="container-prose mt-12 grid gap-4 sm:grid-cols-2">
           {limitations.map((item, i) => (
-            <li
-              key={item.claim}
-              className="border-line bg-surface hover:border-border rounded-lg border p-5 transition-colors"
-            >
-              <p className="flex items-baseline gap-2.5 font-medium">
-                <span className="tabular text-ink-subtle text-xs">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                {item.claim}
+            <li key={item.claim} className="brutal p-5">
+              <p className="text-alert font-mono text-[11px] font-bold tracking-widest">
+                {`WARN ${String(i + 1).padStart(2, '0')}`}
               </p>
+              <p className="mt-1.5 font-medium">{item.claim}</p>
               <p className="text-muted-foreground mt-2 leading-relaxed">{item.detail}</p>
             </li>
           ))}

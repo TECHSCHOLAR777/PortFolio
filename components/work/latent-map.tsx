@@ -12,6 +12,7 @@ const PAD = 68
 
 const domainColor: Record<string, string> = {
   'representation learning': 'var(--chart-1)',
+  'scientific ml': 'var(--chart-1)',
   'human interfaces': 'var(--chart-2)',
   agents: 'var(--chart-3)',
   edge: 'var(--chart-4)',

@@ -21,7 +21,7 @@ export function Certifications() {
                 href={cert.url}
                 target="_blank"
                 rel="noreferrer"
-                className="border-border bg-card hover:border-signal/50 hover:bg-card group flex h-full flex-col items-center justify-center rounded-lg border p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-sm"
+                className="brutal group flex h-full flex-col items-center justify-center p-5 text-center"
               >
                 <h3 className="text-sm font-medium">{cert.title}</h3>
                 <p className="text-muted-foreground mt-1.5 text-xs">{cert.issuer}</p>

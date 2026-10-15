@@ -91,7 +91,7 @@ export function Contact() {
                 name="name"
                 required
                 autoComplete="name"
-                className="border-input bg-background focus-visible:ring-ring mt-1.5 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2"
+                className="border-input bg-background focus-visible:ring-ring mt-1.5 w-full border px-3 py-2 text-sm outline-none focus-visible:ring-2"
               />
             </div>
             <div className="text-left">
@@ -104,7 +104,7 @@ export function Contact() {
                 type="email"
                 required
                 autoComplete="email"
-                className="border-input bg-background focus-visible:ring-ring mt-1.5 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2"
+                className="border-input bg-background focus-visible:ring-ring mt-1.5 w-full border px-3 py-2 text-sm outline-none focus-visible:ring-2"
               />
             </div>
           </div>
@@ -118,7 +118,7 @@ export function Contact() {
               name="message"
               rows={5}
               required
-              className="border-input bg-background focus-visible:ring-ring mt-1.5 w-full resize-y rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2"
+              className="border-input bg-background focus-visible:ring-ring mt-1.5 w-full resize-y border px-3 py-2 text-sm outline-none focus-visible:ring-2"
             />
           </div>
 
